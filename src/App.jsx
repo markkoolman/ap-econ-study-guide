@@ -561,6 +561,651 @@ const CircularDiag=()=>(
   </svg><p>Money & real goods flow in opposite directions. Product market (top) + Resource market (bottom).</p></div>
 );
 
+// Domestic Tariff diagram (Topic 2.9)
+const DomTariffDiag=()=>(
+  <div className="dw"><h5>🌍 Tariff — Domestic Market View (AP Micro Topic 2.9)</h5>
+  <svg viewBox="0 0 320 225" style={{maxWidth:315,width:"100%"}}>
+    <line x1="33" y1="202" x2="282" y2="202" stroke="#4a7aab" strokeWidth="1.5"/>
+    <line x1="33" y1="202" x2="33" y2="12" stroke="#4a7aab" strokeWidth="1.5"/>
+    <text x="157" y="218" fill="#6a7e8f" fontSize="9" textAnchor="middle">Quantity</text>
+    <text x="13" y="107" fill="#6a7e8f" fontSize="9" textAnchor="middle" transform="rotate(-90,13,107)">Price ($)</text>
+    {/* Domestic Supply */}
+    <line x1="46" y1="182" x2="218" y2="38" stroke="#c9a84c" strokeWidth="2"/>
+    <text x="220" y="36" fill="#c9a84c" fontSize="9">S_dom</text>
+    {/* Domestic Demand */}
+    <line x1="46" y1="32" x2="218" y2="182" stroke="#5fcc8a" strokeWidth="2"/>
+    <text x="220" y="183" fill="#5fcc8a" fontSize="9">D_dom</text>
+    {/* World price line (free trade) */}
+    <line x1="33" y1="138" x2="275" y2="138" stroke="#88aaff" strokeWidth="1.8" strokeDasharray="5,3"/>
+    <text x="278" y="141" fill="#88aaff" fontSize="8">Pw (world)</text>
+    {/* Tariff price line */}
+    <line x1="33" y1="118" x2="275" y2="118" stroke="#b8943a" strokeWidth="2"/>
+    <text x="278" y="121" fill="#b8943a" fontSize="8">Pw+tariff</text>
+    {/* Quantity markers at world price */}
+    <line x1="82" y1="202" x2="82" y2="138" stroke="#88aaff" strokeWidth="1" strokeDasharray="2,2"/>
+    <line x1="198" y1="202" x2="198" y2="138" stroke="#88aaff" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="82" y="210" fill="#88aaff" fontSize="7.5" textAnchor="middle">Qs_w</text>
+    <text x="198" y="210" fill="#88aaff" fontSize="7.5" textAnchor="middle">Qd_w</text>
+    {/* Quantity markers at tariff price */}
+    <line x1="96" y1="202" x2="96" y2="118" stroke="#b8943a" strokeWidth="1" strokeDasharray="2,2"/>
+    <line x1="178" y1="202" x2="178" y2="118" stroke="#b8943a" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="96" y="210" fill="#b8943a" fontSize="7.5" textAnchor="middle">Qs_t</text>
+    <text x="178" y="210" fill="#b8943a" fontSize="7.5" textAnchor="middle">Qd_t</text>
+    {/* Areas: CS loss (a+b+c+d), PS gain (a), govt revenue (c), DWL (b+d) */}
+    <polygon points="33,118 33,138 82,138 96,118" fill="#c9a84c" opacity=".3"/>
+    <text x="62" y="132" fill="#c9a84c" fontSize="8" textAnchor="middle">a</text>
+    <polygon points="82,138 96,118 96,138" fill="#e07070" opacity=".35"/>
+    <text x="92" y="134" fill="#e07070" fontSize="7.5">b</text>
+    <rect x="96" y="118" width="82" height="20" fill="#5fcc8a" opacity=".2"/>
+    <text x="137" y="131" fill="#5fcc8a" fontSize="8" textAnchor="middle">c (rev)</text>
+    <polygon points="178,118 178,138 198,138" fill="#e07070" opacity=".35"/>
+    <text x="186" y="134" fill="#e07070" fontSize="7.5">d</text>
+  </svg><p>Free trade: domestic supply Qs_w, domestic demand Qd_w, imports = Qd_w − Qs_w. Tariff raises price → imports shrink, domestic production rises. CS loss = a+b+c+d. PS gain = a. Govt revenue = c. DWL = b+d.</p></div>
+);
+
+// T-Account / Bank Balance Sheet
+const TAccountDiag=()=>(
+  <div className="dw"><h5>🏦 T-Account: Bank Balance Sheet & Money Creation</h5>
+  <svg viewBox="0 0 500 210" style={{maxWidth:490,width:"100%"}}>
+    {/* Bank receives $1000 deposit */}
+    <rect x="12" y="12" width="224" height="92" rx="6" fill="#101e2e" stroke="#b8943a" strokeWidth="1.3"/>
+    <text x="124" y="28" fill="#b8943a" fontSize="8.5" textAnchor="middle" fontWeight="bold">BANK A — After $1,000 Deposit (RR=20%)</text>
+    <line x1="124" y1="32" x2="124" y2="100" stroke="#253650" strokeWidth="1"/>
+    <line x1="12" y1="38" x2="236" y2="38" stroke="#253650" strokeWidth="1"/>
+    <text x="68" y="48" fill="#5fcc8a" fontSize="8" textAnchor="middle" fontWeight="bold">ASSETS</text>
+    <text x="180" y="48" fill="#e07070" fontSize="8" textAnchor="middle" fontWeight="bold">LIABILITIES</text>
+    <text x="20" y="62" fill="#a8bece" fontSize="7.5">Reserves: +$1,000</text>
+    <text x="130" y="62" fill="#a8bece" fontSize="7.5">Demand deposits: +$1,000</text>
+    <text x="20" y="74" fill="#7a8e9f" fontSize="7">(required: $200)</text>
+    <text x="20" y="85" fill="#7a8e9f" fontSize="7">(excess: $800)</text>
+    <text x="20" y="96" fill="#c9a84c" fontSize="7.5">→ Can loan out $800</text>
+    {/* After lending */}
+    <rect x="12" y="112" width="224" height="88" rx="6" fill="#101e2e" stroke="#5fcc8a" strokeWidth="1.3"/>
+    <text x="124" y="128" fill="#5fcc8a" fontSize="8.5" textAnchor="middle" fontWeight="bold">BANK A — After Lending $800</text>
+    <line x1="124" y1="132" x2="124" y2="197" stroke="#253650" strokeWidth="1"/>
+    <line x1="12" y1="138" x2="236" y2="138" stroke="#253650" strokeWidth="1"/>
+    <text x="68" y="148" fill="#5fcc8a" fontSize="8" textAnchor="middle" fontWeight="bold">ASSETS</text>
+    <text x="180" y="148" fill="#e07070" fontSize="8" textAnchor="middle" fontWeight="bold">LIABILITIES</text>
+    <text x="20" y="162" fill="#a8bece" fontSize="7.5">Reserves: +$200</text>
+    <text x="130" y="162" fill="#a8bece" fontSize="7.5">Demand deposits: +$1,000</text>
+    <text x="20" y="174" fill="#a8bece" fontSize="7.5">Loans: +$800</text>
+    <text x="20" y="186" fill="#c9a84c" fontSize="7.5">Total assets: $1,000</text>
+    <text x="130" y="186" fill="#c9a84c" fontSize="7.5">Total liabilities: $1,000</text>
+    {/* Right side: Fed OMO T-account */}
+    <rect x="248" y="12" width="244" height="186" rx="6" fill="#101e2e" stroke="#a880ff" strokeWidth="1.3"/>
+    <text x="370" y="28" fill="#a880ff" fontSize="8.5" textAnchor="middle" fontWeight="bold">FED BUYS $100 BOND FROM BANK (OMO)</text>
+    <line x1="370" y1="32" x2="370" y2="195" stroke="#253650" strokeWidth="1"/>
+    <line x1="248" y1="38" x2="492" y2="38" stroke="#253650" strokeWidth="1"/>
+    <text x="309" y="48" fill="#5fcc8a" fontSize="8" textAnchor="middle" fontWeight="bold">FED ASSETS</text>
+    <text x="431" y="48" fill="#e07070" fontSize="8" textAnchor="middle" fontWeight="bold">FED LIABILITIES</text>
+    <text x="256" y="62" fill="#a8bece" fontSize="7.5">Securities: +$100</text>
+    <text x="378" y="62" fill="#a8bece" fontSize="7.5">Bank reserves: +$100</text>
+    <line x1="248" y1="90" x2="492" y2="90" stroke="#253650" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="309" y="102" fill="#5fcc8a" fontSize="8" textAnchor="middle" fontWeight="bold">BANK ASSETS</text>
+    <text x="431" y="102" fill="#e07070" fontSize="8" textAnchor="middle" fontWeight="bold">BANK LIABILITIES</text>
+    <text x="256" y="116" fill="#a8bece" fontSize="7.5">Securities: −$100</text>
+    <text x="378" y="116" fill="#a8bece" fontSize="7.5">(no change)</text>
+    <text x="256" y="128" fill="#a8bece" fontSize="7.5">Reserves: +$100</text>
+    <text x="256" y="142" fill="#c9a84c" fontSize="7.5">Excess reserves +$100</text>
+    <text x="256" y="154" fill="#c9a84c" fontSize="7.5">→ can lend $100 more</text>
+    <text x="256" y="168" fill="#b8943a" fontSize="7">With RR=10%: $100 × (1/0.1)</text>
+    <text x="256" y="179" fill="#b8943a" fontSize="7">= up to $1,000 new money</text>
+    <text x="256" y="190" fill="#b8943a" fontSize="7">created through banking system</text>
+  </svg><p>T-accounts always balance: Assets = Liabilities. Required reserves = RR × deposits. Excess reserves can be loaned out. Fed OMO: buy bond from bank → bank's securities fall, reserves rise → new lending capacity.</p></div>
+);
+
+/* ═══════════ NEW DIAGRAMS ═══════════ */
+
+// Reserve Market (AP Macro ample reserves framework)
+const ReserveMktDiag=()=>(
+  <div className="dw"><h5>🏦 The Reserve Market (AP Macro — Ample Reserves Framework)</h5>
+  <svg viewBox="0 0 500 195" style={{maxWidth:490,width:"100%"}}>
+    {/* Left: Reserve Market diagram */}
+    <line x1="28" y1="175" x2="220" y2="175" stroke="#4a7aab" strokeWidth="1.5"/>
+    <line x1="28" y1="175" x2="28" y2="12" stroke="#4a7aab" strokeWidth="1.5"/>
+    <polygon points="220,172 227,175 220,178" fill="#4a7aab"/><polygon points="25,12 28,5 31,12" fill="#4a7aab"/>
+    <text x="124" y="190" fill="#6a7e8f" fontSize="9" textAnchor="middle">Quantity of Reserves</text>
+    <text x="10" y="93" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,10,93)">Policy Rate (%)</text>
+    {/* SR - horizontal at IOR level (ample reserves: supply flat at IOR) */}
+    <line x1="28" y1="88" x2="215" y2="88" stroke="#c9a84c" strokeWidth="2.5"/>
+    <text x="217" y="85" fill="#c9a84c" fontSize="9">SR</text>
+    <text x="217" y="95" fill="#c9a84c" fontSize="7.5">(IOR)</text>
+    {/* DR - downward sloping */}
+    <line x1="38" y1="32" x2="210" y2="168" stroke="#5fcc8a" strokeWidth="2"/>
+    <text x="212" y="166" fill="#5fcc8a" fontSize="9">DR</text>
+    {/* Policy rate PR1 */}
+    <line x1="28" y1="88" x2="124" y2="88" stroke="#b8943a" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="23" y="91" fill="#b8943a" fontSize="8" textAnchor="end">PR*</text>
+    {/* Quantity */}
+    <line x1="124" y1="175" x2="124" y2="88" stroke="#b8943a" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="124" y="183" fill="#b8943a" fontSize="7.5" textAnchor="middle">Q*</text>
+    <circle cx="124" cy="88" r="4" fill="#fff" stroke="#b8943a" strokeWidth="1.5"/>
+    <text x="28" y="9" fill="#a880ff" fontSize="8.5" fontWeight="bold">RESERVE MARKET</text>
+    {/* Right: Key concepts */}
+    <rect x="242" y="10" width="252" height="172" rx="7" fill="#101e2e" stroke="#a880ff" strokeWidth="1.2"/>
+    <text x="368" y="26" fill="#a880ff" fontSize="8.5" textAnchor="middle" fontWeight="bold">AMPLE RESERVES FRAMEWORK (US Today)</text>
+    <text x="250" y="42" fill="#c0d0dc" fontSize="7.5">US banking system has AMPLE reserves since 2008.</text>
+    <text x="250" y="54" fill="#c0d0dc" fontSize="7.5">Key Fed tool = Interest on Reserves (IOR), NOT RR.</text>
+    <line x1="250" y1="62" x2="486" y2="62" stroke="#253650" strokeWidth="1"/>
+    <text x="250" y="75" fill="#b8943a" fontSize="7.5" fontWeight="bold">SR (Supply of Reserves):</text>
+    <text x="250" y="86" fill="#a8bece" fontSize="7.5">• Horizontal at IOR rate (Fed sets this directly)</text>
+    <text x="250" y="97" fill="#a8bece" fontSize="7.5">• Fed raises IOR → SR shifts UP → policy rate rises</text>
+    <text x="250" y="108" fill="#a8bece" fontSize="7.5">• Fed lowers IOR → SR shifts DOWN → policy rate falls</text>
+    <line x1="250" y1="116" x2="486" y2="116" stroke="#253650" strokeWidth="1"/>
+    <text x="250" y="129" fill="#5fcc8a" fontSize="7.5" fontWeight="bold">DR (Demand for Reserves):</text>
+    <text x="250" y="140" fill="#a8bece" fontSize="7.5">• Downward sloping: lower rate → banks hold fewer reserves</text>
+    <text x="250" y="151" fill="#a8bece" fontSize="7.5">• Shifts right if: reserve requirements rise, more transactions</text>
+    <line x1="250" y1="159" x2="486" y2="159" stroke="#253650" strokeWidth="1"/>
+    <text x="250" y="172" fill="#00c8b4" fontSize="7.5">★ Different from money market (which shows i vs. money qty)</text>
+  </svg><p>In the ample reserves system (US since 2008), the Fed controls the policy rate primarily by setting the Interest on Reserves (IOR), making SR horizontal. Raising IOR shifts SR up → policy rate rises. Required diagram for AP Macro FRQs.</p></div>
+);
+
+// Natural Monopoly diagram
+const NatMonopDiag=()=>(
+  <div className="dw"><h5>🏭 Natural Monopoly — Regulation Options</h5>
+  <svg viewBox="0 0 320 220" style={{maxWidth:315,width:"100%"}}>
+    <line x1="28" y1="200" x2="290" y2="200" stroke="#4a7aab" strokeWidth="1.5"/>
+    <line x1="28" y1="200" x2="28" y2="10" stroke="#4a7aab" strokeWidth="1.5"/>
+    <text x="159" y="215" fill="#6a7e8f" fontSize="9" textAnchor="middle">Quantity</text>
+    <text x="10" y="105" fill="#6a7e8f" fontSize="9" textAnchor="middle" transform="rotate(-90,10,105)">Price / Cost ($)</text>
+    {/* ATC - continuously declining (natural monopoly) */}
+    <path d="M 38 22 Q 70 55, 110 88 T 200 130 S 258 148, 280 155" stroke="#4a7aab" strokeWidth="2" fill="none"/>
+    <text x="282" y="153" fill="#4a7aab" fontSize="9">ATC</text>
+    {/* MC - below ATC, also declining but flatter */}
+    <path d="M 38 55 Q 75 78, 120 105 T 215 145 S 262 158, 280 162" stroke="#e07070" strokeWidth="1.8" fill="none"/>
+    <text x="282" y="160" fill="#e07070" fontSize="9">MC</text>
+    {/* Demand */}
+    <line x1="38" y1="24" x2="272" y2="185" stroke="#5fcc8a" strokeWidth="2"/>
+    <text x="274" y="183" fill="#5fcc8a" fontSize="9">D</text>
+    {/* MR */}
+    <line x1="38" y1="24" x2="155" y2="185" stroke="#88aaff" strokeWidth="2"/>
+    <text x="158" y="183" fill="#88aaff" fontSize="9">MR</text>
+    {/* Unregulated: MR=MC gives Qm */}
+    <line x1="112" y1="200" x2="112" y2="100" stroke="#b8943a" strokeWidth="1" strokeDasharray="3,2"/>
+    <line x1="28" y1="60" x2="112" y2="60" stroke="#b8943a" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="112" y="208" fill="#b8943a" fontSize="7.5" textAnchor="middle">Qm</text>
+    <text x="23" y="63" fill="#b8943a" fontSize="7" textAnchor="end">Pm</text>
+    <circle cx="112" cy="60" r="4" fill="#fff" stroke="#b8943a" strokeWidth="1.5"/>
+    {/* Socially optimal: P=MC gives Qs */}
+    <line x1="175" y1="200" x2="175" y2="142" stroke="#e07070" strokeWidth="1.2" strokeDasharray="2,2"/>
+    <line x1="28" y1="142" x2="175" y2="142" stroke="#e07070" strokeWidth="1.2" strokeDasharray="2,2"/>
+    <text x="175" y="208" fill="#e07070" fontSize="7.5" textAnchor="middle">Qs</text>
+    <text x="23" y="145" fill="#e07070" fontSize="7" textAnchor="end">Ps</text>
+    <text x="140" y="138" fill="#e07070" fontSize="7">P=MC</text>
+    <text x="135" y="147" fill="#e07070" fontSize="6.5">(loss: ATC>P)</text>
+    {/* Fair return: P=ATC gives Qf */}
+    <line x1="148" y1="200" x2="148" y2="122" stroke="#5fcc8a" strokeWidth="1.2" strokeDasharray="2,2"/>
+    <line x1="28" y1="122" x2="148" y2="122" stroke="#5fcc8a" strokeWidth="1.2" strokeDasharray="2,2"/>
+    <text x="148" y="208" fill="#5fcc8a" fontSize="7.5" textAnchor="middle">Qf</text>
+    <text x="23" y="125" fill="#5fcc8a" fontSize="7" textAnchor="end">Pf</text>
+    <text x="155" y="119" fill="#5fcc8a" fontSize="7">P=ATC</text>
+    <text x="152" y="128" fill="#5fcc8a" fontSize="6.5">(normal π)</text>
+  </svg><p>Natural monopoly: ATC falls continuously (huge economies of scale). MC always below ATC. Unregulated: Pm, Qm (profit, DWL). Socially optimal: P=MC (efficient but causes losses — needs subsidy). Fair return: P=ATC (normal profit, less DWL than unregulated).</p></div>
+);
+
+// TU and MU utility curves (AP Micro required to draw)
+const UtilityDiag=()=>(
+  <div className="dw"><h5>📈 Total Utility (TU) & Marginal Utility (MU) Curves</h5>
+  <svg viewBox="0 0 480 195" style={{maxWidth:470,width:"100%"}}>
+    {/* Left: TU curve */}
+    <line x1="25" y1="175" x2="205" y2="175" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="25" y1="175" x2="25" y2="10" stroke="#4a7aab" strokeWidth="1.4"/>
+    <text x="115" y="190" fill="#6a7e8f" fontSize="9" textAnchor="middle">Quantity Consumed</text>
+    <text x="11" y="92" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,11,92)">Total Utility (TU)</text>
+    {/* TU curve - rises then flattens, may turn down */}
+    <path d="M 28 165 Q 55 100, 90 55 T 145 28 S 175 25, 195 30" stroke="#b8943a" strokeWidth="2.2" fill="none"/>
+    <text x="197" y="28" fill="#b8943a" fontSize="9">TU</text>
+    <text x="28" y="8" fill="#b8943a" fontSize="8.5" fontWeight="bold">TOTAL UTILITY</text>
+    {/* Max TU point */}
+    <circle cx="155" cy="26" r="4" fill="#fff" stroke="#5fcc8a" strokeWidth="1.5"/>
+    <line x1="155" y1="175" x2="155" y2="26" stroke="#5fcc8a" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="158" y="14" fill="#5fcc8a" fontSize="7.5">TU max</text>
+    <text x="158" y="22" fill="#5fcc8a" fontSize="7">(MU=0 here)</text>
+    {/* Right: MU curve */}
+    <line x1="248" y1="175" x2="455" y2="175" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="248" y1="175" x2="248" y2="10" stroke="#4a7aab" strokeWidth="1.4"/>
+    {/* Zero line */}
+    <line x1="248" y1="130" x2="455" y2="130" stroke="#253650" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="243" y="133" fill="#5a6e7f" fontSize="7.5" textAnchor="end">0</text>
+    <text x="348" y="190" fill="#6a7e8f" fontSize="9" textAnchor="middle">Quantity Consumed</text>
+    <text x="234" y="92" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,234,92)">Marginal Utility (MU)</text>
+    {/* MU curve - starts high, declines, crosses zero, goes negative */}
+    <path d="M 252 25 Q 278 50, 310 80 T 370 122 S 410 140, 445 158" stroke="#5fcc8a" strokeWidth="2.2" fill="none"/>
+    <text x="447" y="156" fill="#5fcc8a" fontSize="9">MU</text>
+    <text x="248" y="8" fill="#5fcc8a" fontSize="8.5" fontWeight="bold">MARGINAL UTILITY</text>
+    {/* MU=0 at max TU */}
+    <circle cx="375" cy="130" r="4" fill="#fff" stroke="#5fcc8a" strokeWidth="1.5"/>
+    <line x1="375" y1="175" x2="375" y2="130" stroke="#5fcc8a" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="378" y="121" fill="#5fcc8a" fontSize="7.5">MU = 0</text>
+    <text x="378" y="131" fill="#5fcc8a" fontSize="7">(TU at max)</text>
+    {/* Diminishing MU label */}
+    <text x="280" y="55" fill="#b8943a" fontSize="7.5">Law of Diminishing</text>
+    <text x="280" y="65" fill="#b8943a" fontSize="7.5">Marginal Utility:</text>
+    <text x="280" y="75" fill="#b8943a" fontSize="7.5">MU falls as Q rises</text>
+  </svg><p>TU rises as Q increases (at decreasing rate). MU = slope of TU = extra utility from one more unit. MU always falls (diminishing MU). When MU = 0, TU is at its maximum. Required to draw on AP Micro FRQ.</p></div>
+);
+
+// Four Externality Types with MSC/MPC/MSB/MPB
+const ExternalityDiag=()=>(
+  <div className="dw"><h5>⚠️ Four Externality Types — MSC / MPC / MSB / MPB (AP Micro Required)</h5>
+  <svg viewBox="0 0 580 280" style={{maxWidth:575,width:"100%"}}>
+    {/* TOP LEFT: Negative Production Externality */}
+    <text x="72" y="12" fill="#e07070" fontSize="8" textAnchor="middle" fontWeight="bold">Negative Production</text>
+    <line x1="15" y1="125" x2="130" y2="125" stroke="#4a7aab" strokeWidth="1.2"/>
+    <line x1="15" y1="125" x2="15" y2="18" stroke="#4a7aab" strokeWidth="1.2"/>
+    <text x="72" y="133" fill="#6a7e8f" fontSize="7" textAnchor="middle">Q</text>
+    <text x="8" y="72" fill="#6a7e8f" fontSize="7" textAnchor="middle" transform="rotate(-90,8,72)">P/$</text>
+    {/* MPB=MSB demand */}
+    <line x1="20" y1="22" x2="122" y2="115" stroke="#5fcc8a" strokeWidth="1.8"/>
+    <text x="124" y="113" fill="#5fcc8a" fontSize="7">MPB=MSB</text>
+    {/* MPC supply */}
+    <line x1="20" y1="108" x2="122" y2="32" stroke="#c9a84c" strokeWidth="1.8"/>
+    <text x="124" y="30" fill="#c9a84c" fontSize="7">MPC</text>
+    {/* MSC above MPC */}
+    <line x1="20" y1="92" x2="122" y2="20" stroke="#e07070" strokeWidth="2" strokeDasharray="4,2"/>
+    <text x="124" y="18" fill="#e07070" fontSize="7">MSC</text>
+    {/* Qm and Qs */}
+    <line x1="71" y1="125" x2="71" y2="68" stroke="#c9a84c" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="71" y="130" fill="#c9a84c" fontSize="7" textAnchor="middle">Qm</text>
+    <line x1="57" y1="125" x2="57" y2="74" stroke="#e07070" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="54" y="130" fill="#e07070" fontSize="7" textAnchor="middle">Qs</text>
+    <text x="64" y="50" fill="#e07070" fontSize="6.5">DWL</text>
+    <polygon points="57,74 71,68 57,68" fill="#e07070" opacity=".35"/>
+    <text x="15" y="145" fill="#e07070" fontSize="7">Overproduces: Qm&gt;Qs</text>
+    <text x="15" y="153" fill="#e07070" fontSize="7">Fix: Pigouvian TAX</text>
+
+    {/* TOP RIGHT: Positive Production Externality */}
+    <text x="217" y="12" fill="#5fcc8a" fontSize="8" textAnchor="middle" fontWeight="bold">Positive Production</text>
+    <line x1="158" y1="125" x2="278" y2="125" stroke="#4a7aab" strokeWidth="1.2"/>
+    <line x1="158" y1="125" x2="158" y2="18" stroke="#4a7aab" strokeWidth="1.2"/>
+    <text x="218" y="133" fill="#6a7e8f" fontSize="7" textAnchor="middle">Q</text>
+    {/* MPB=MSB demand */}
+    <line x1="163" y1="22" x2="265" y2="115" stroke="#5fcc8a" strokeWidth="1.8"/>
+    <text x="267" y="113" fill="#5fcc8a" fontSize="7">MPB=MSB</text>
+    {/* MPC supply */}
+    <line x1="163" y1="110" x2="265" y2="28" stroke="#c9a84c" strokeWidth="1.8"/>
+    <text x="267" y="26" fill="#c9a84c" fontSize="7">MPC</text>
+    {/* MSC below MPC */}
+    <line x1="163" y1="120" x2="265" y2="42" stroke="#5fcc8a" strokeWidth="2" strokeDasharray="4,2"/>
+    <text x="267" y="40" fill="#5fcc8a" fontSize="7">MSC</text>
+    {/* Qm and Qs */}
+    <line x1="214" y1="125" x2="214" y2="68" stroke="#c9a84c" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="214" y="130" fill="#c9a84c" fontSize="7" textAnchor="middle">Qm</text>
+    <line x1="228" y1="125" x2="228" y2="62" stroke="#5fcc8a" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="231" y="130" fill="#5fcc8a" fontSize="7" textAnchor="middle">Qs</text>
+    <polygon points="214,68 228,62 228,68" fill="#5fcc8a" opacity=".35"/>
+    <text x="158" y="145" fill="#5fcc8a" fontSize="7">Underproduces: Qm&lt;Qs</text>
+    <text x="158" y="153" fill="#5fcc8a" fontSize="7">Fix: SUBSIDY</text>
+
+    {/* BOTTOM LEFT: Negative Consumption Externality */}
+    <text x="72" y="165" fill="#e07070" fontSize="8" textAnchor="middle" fontWeight="bold">Negative Consumption</text>
+    <line x1="15" y1="272" x2="130" y2="272" stroke="#4a7aab" strokeWidth="1.2"/>
+    <line x1="15" y1="272" x2="15" y2="168" stroke="#4a7aab" strokeWidth="1.2"/>
+    <text x="72" y="279" fill="#6a7e8f" fontSize="7" textAnchor="middle">Q</text>
+    {/* MPC=MSC supply */}
+    <line x1="20" y1="262" x2="122" y2="178" stroke="#c9a84c" strokeWidth="1.8"/>
+    <text x="124" y="176" fill="#c9a84c" fontSize="7">MPC=MSC</text>
+    {/* MPB demand */}
+    <line x1="20" y1="175" x2="122" y2="262" stroke="#88aaff" strokeWidth="1.8"/>
+    <text x="124" y="264" fill="#88aaff" fontSize="7">MPB</text>
+    {/* MSB below MPB */}
+    <line x1="20" y1="192" x2="104" y2="262" stroke="#e07070" strokeWidth="2" strokeDasharray="4,2"/>
+    <text x="107" y="264" fill="#e07070" fontSize="7">MSB</text>
+    {/* Qm and Qs */}
+    <line x1="71" y1="272" x2="71" y2="218" stroke="#88aaff" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="74" y="270" fill="#88aaff" fontSize="7">Qm</text>
+    <line x1="58" y1="272" x2="58" y2="226" stroke="#e07070" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="55" y="270" fill="#e07070" fontSize="7">Qs</text>
+    <polygon points="58,226 71,218 58,218" fill="#e07070" opacity=".35"/>
+    <text x="15" y="277" fill="#e07070" fontSize="6.5">Over: Qm&gt;Qs · Fix: TAX on buyers</text>
+
+    {/* BOTTOM RIGHT: Positive Consumption Externality */}
+    <text x="217" y="165" fill="#5fcc8a" fontSize="8" textAnchor="middle" fontWeight="bold">Positive Consumption</text>
+    <line x1="158" y1="272" x2="278" y2="272" stroke="#4a7aab" strokeWidth="1.2"/>
+    <line x1="158" y1="272" x2="158" y2="168" stroke="#4a7aab" strokeWidth="1.2"/>
+    <text x="218" y="279" fill="#6a7e8f" fontSize="7" textAnchor="middle">Q</text>
+    {/* MPC=MSC supply */}
+    <line x1="163" y1="262" x2="265" y2="175" stroke="#c9a84c" strokeWidth="1.8"/>
+    <text x="267" y="173" fill="#c9a84c" fontSize="7">MPC=MSC</text>
+    {/* MPB demand */}
+    <line x1="163" y1="175" x2="265" y2="262" stroke="#88aaff" strokeWidth="1.8"/>
+    <text x="267" y="264" fill="#88aaff" fontSize="7">MPB</text>
+    {/* MSB above MPB */}
+    <line x1="163" y1="160" x2="265" y2="248" stroke="#5fcc8a" strokeWidth="2" strokeDasharray="4,2"/>
+    <text x="267" y="250" fill="#5fcc8a" fontSize="7">MSB</text>
+    {/* Qm and Qs */}
+    <line x1="214" y1="272" x2="214" y2="218" stroke="#88aaff" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="214" y="270" fill="#88aaff" fontSize="7">Qm</text>
+    <line x1="228" y1="272" x2="228" y2="210" stroke="#5fcc8a" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="231" y="270" fill="#5fcc8a" fontSize="7">Qs</text>
+    <polygon points="214,218 228,210 228,218" fill="#5fcc8a" opacity=".35"/>
+    <text x="158" y="277" fill="#5fcc8a" fontSize="6.5">Under: Qm&lt;Qs · Fix: SUBSIDY to buyers</text>
+
+    {/* Right side: Key framework */}
+    <rect x="300" y="10" width="275" height="262" rx="7" fill="#101e2e" stroke="#b8943a" strokeWidth="1.2"/>
+    <text x="438" y="26" fill="#b8943a" fontSize="8.5" textAnchor="middle" fontWeight="bold">EXTERNALITY FRAMEWORK</text>
+    <text x="308" y="42" fill="#c9a84c" fontSize="8" fontWeight="bold">KEY TERMS:</text>
+    <text x="308" y="54" fill="#a8bece" fontSize="7.5">MPB = Marginal Private Benefit (demand curve)</text>
+    <text x="308" y="65" fill="#a8bece" fontSize="7.5">MSB = Marginal Social Benefit (includes external)</text>
+    <text x="308" y="76" fill="#a8bece" fontSize="7.5">MPC = Marginal Private Cost (supply curve)</text>
+    <text x="308" y="87" fill="#a8bece" fontSize="7.5">MSC = Marginal Social Cost (includes external)</text>
+    <line x1="308" y1="95" x2="567" y2="95" stroke="#253650" strokeWidth="1"/>
+    <text x="308" y="108" fill="#e07070" fontSize="8" fontWeight="bold">NEGATIVE externalities:</text>
+    <text x="308" y="120" fill="#a8bece" fontSize="7.5">Production: MSC &gt; MPC (social cost &gt; private cost)</text>
+    <text x="308" y="131" fill="#a8bece" fontSize="7.5">Consumption: MSB &lt; MPB (social benefit &lt; private)</text>
+    <text x="308" y="142" fill="#e07070" fontSize="7.5">Both: market OVERproduces → fix with TAX</text>
+    <line x1="308" y1="150" x2="567" y2="150" stroke="#253650" strokeWidth="1"/>
+    <text x="308" y="163" fill="#5fcc8a" fontSize="8" fontWeight="bold">POSITIVE externalities:</text>
+    <text x="308" y="175" fill="#a8bece" fontSize="7.5">Production: MSC &lt; MPC (lower social cost)</text>
+    <text x="308" y="186" fill="#a8bece" fontSize="7.5">Consumption: MSB &gt; MPB (higher social benefit)</text>
+    <text x="308" y="197" fill="#5fcc8a" fontSize="7.5">Both: market UNDERproduces → fix with SUBSIDY</text>
+    <line x1="308" y1="205" x2="567" y2="205" stroke="#253650" strokeWidth="1"/>
+    <text x="308" y="218" fill="#b8943a" fontSize="7.5" fontWeight="bold">Social optimum always where MSB = MSC</text>
+    <text x="308" y="229" fill="#a8bece" fontSize="7.5">DWL = triangle between Qm and Qs</text>
+    <line x1="308" y1="237" x2="567" y2="237" stroke="#253650" strokeWidth="1"/>
+    <text x="308" y="250" fill="#00c8b4" fontSize="7.5">★ AP Micro: Must draw & label ALL 4 types.</text>
+    <text x="308" y="261" fill="#00c8b4" fontSize="7.5">★ Quotas are EXCLUDED from AP Micro scope.</text>
+  </svg><p>The AP Micro exam requires you to draw ALL four types with correct MSC/MPC/MSB/MPB labels. Social optimum always at MSB = MSC. DWL is the welfare triangle between market Q and social optimum Q.</p></div>
+);
+
+// Production Function: TP, MP, AP curves
+const ProdFnDiag=()=>(
+  <div className="dw"><h5>🏭 Production Function: TP, MP & AP Curves</h5>
+  <svg viewBox="0 0 580 210" style={{maxWidth:575,width:"100%"}}>
+    {/* LEFT: Total Product */}
+    <line x1="18" y1="188" x2="178" y2="188" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="18" y1="188" x2="18" y2="12" stroke="#4a7aab" strokeWidth="1.4"/>
+    <text x="98" y="203" fill="#6a7e8f" fontSize="8.5" textAnchor="middle">Labor (L)</text>
+    <text x="10" y="100" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,10,100)">Total Product (TP)</text>
+    <path d="M 22 178 Q 55 120, 90 65 T 148 38 S 168 30, 172 35" stroke="#b8943a" strokeWidth="2.2" fill="none"/>
+    <text x="98" y="8" fill="#b8943a" fontSize="9" textAnchor="middle" fontWeight="bold">TOTAL PRODUCT</text>
+    <text x="98" y="18" fill="#7a8e9f" fontSize="7.5" textAnchor="middle">increases then flattens</text>
+    {/* Diminishing returns marker */}
+    <line x1="108" y1="12" x2="108" y2="188" stroke="#e07070" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="115" y="22" fill="#e07070" fontSize="7">Diminishing</text>
+    <text x="115" y="30" fill="#e07070" fontSize="7">returns begin</text>
+    {/* RIGHT: MP and AP */}
+    <line x1="218" y1="188" x2="375" y2="188" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="218" y1="188" x2="218" y2="12" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="218" y1="100" x2="375" y2="100" stroke="#253650" strokeWidth="1" strokeDasharray="3,2"/>
+    <text x="296" y="203" fill="#6a7e8f" fontSize="8.5" textAnchor="middle">Labor (L)</text>
+    <text x="210" y="100" fill="#6a7e8f" fontSize="7" textAnchor="end">0</text>
+    {/* MP - rises then falls, crosses x-axis */}
+    <path d="M 222 155 Q 248 55, 275 48 T 318 88 S 348 138, 368 178" stroke="#5fcc8a" strokeWidth="2.2" fill="none"/>
+    <text x="372" y="176" fill="#5fcc8a" fontSize="9">MP</text>
+    {/* AP - rises then falls, always above MP when MP>AP */}
+    <path d="M 222 165 Q 252 80, 285 70 T 335 108 S 360 140, 370 155" stroke="#88aaff" strokeWidth="2" fill="none"/>
+    <text x="372" y="153" fill="#88aaff" fontSize="9">AP</text>
+    <text x="296" y="8" fill="#5fcc8a" fontSize="9" textAnchor="middle" fontWeight="bold">MARGINAL & AVERAGE PRODUCT</text>
+    <text x="296" y="18" fill="#7a8e9f" fontSize="7.5" textAnchor="middle">MP cuts AP at AP's maximum</text>
+    {/* MP cuts AP label */}
+    <circle cx="298" cy="72" r="4" fill="#fff" stroke="#b8943a" strokeWidth="1.5"/>
+    <text x="305" y="70" fill="#b8943a" fontSize="7.5">MP=AP (max AP)</text>
+    {/* KEY RULES box */}
+    <rect x="395" y="15" width="178" height="168" rx="7" fill="#101e2e" stroke="#253650" strokeWidth="1.2"/>
+    <text x="484" y="32" fill="#b8943a" fontSize="8.5" textAnchor="middle" fontWeight="bold">KEY RULES</text>
+    <text x="403" y="50" fill="#5fcc8a" fontSize="8">• MP rises → TP accelerating</text>
+    <text x="403" y="63" fill="#5fcc8a" fontSize="8">• MP falls → TP decelerating</text>
+    <text x="403" y="76" fill="#5fcc8a" fontSize="8">• MP = 0 → TP at maximum</text>
+    <text x="403" y="89" fill="#e07070" fontSize="8">• MP &lt; 0 → TP declining</text>
+    <text x="403" y="108" fill="#88aaff" fontSize="8">• MP &gt; AP → AP rising</text>
+    <text x="403" y="121" fill="#88aaff" fontSize="8">• MP &lt; AP → AP falling</text>
+    <text x="403" y="134" fill="#88aaff" fontSize="8">• MP = AP → AP at max</text>
+    <text x="403" y="153" fill="#c9a84c" fontSize="8">• Diminishing returns:</text>
+    <text x="403" y="165" fill="#c9a84c" fontSize="8">  MP starts falling</text>
+    <text x="403" y="177" fill="#c9a84c" fontSize="8">  (NOT when MP&lt;0)</text>
+  </svg><p>TP = total output. MP = change in TP per extra worker. AP = TP/L. Diminishing returns start when MP peaks and begins falling.</p></div>
+);
+
+// Per-unit tax diagram
+const TaxDiag=()=>(
+  <div className="dw"><h5>💸 Per-Unit Tax — Burden, DWL & Revenue</h5>
+  <svg viewBox="0 0 300 220" style={{maxWidth:295,width:"100%"}}>
+    <line x1="33" y1="198" x2="268" y2="198" stroke="#4a7aab" strokeWidth="1.5"/>
+    <line x1="33" y1="198" x2="33" y2="12" stroke="#4a7aab" strokeWidth="1.5"/>
+    <text x="150" y="213" fill="#6a7e8f" fontSize="9" textAnchor="middle">Quantity</text>
+    <text x="13" y="105" fill="#6a7e8f" fontSize="9" textAnchor="middle" transform="rotate(-90,13,105)">Price ($)</text>
+    {/* Original supply */}
+    <line x1="46" y1="178" x2="228" y2="42" stroke="#c9a84c" strokeWidth="1.8" strokeDasharray="4,2"/>
+    <text x="230" y="40" fill="#c9a84c" fontSize="8">S₀</text>
+    {/* Supply after tax (shift left/up by tax amount) */}
+    <line x1="46" y1="138" x2="228" y2="18" stroke="#c9a84c" strokeWidth="2"/>
+    <text x="230" y="18" fill="#c9a84c" fontSize="9">S+tax</text>
+    {/* Demand */}
+    <line x1="46" y1="28" x2="228" y2="175" stroke="#5fcc8a" strokeWidth="2"/>
+    <text x="230" y="175" fill="#5fcc8a" fontSize="9">D</text>
+    {/* Original equilibrium */}
+    <circle cx="137" cy="103" r="4" fill="#fff" stroke="#6a7e8f" strokeWidth="1.5"/>
+    {/* New equilibrium after tax */}
+    <circle cx="115" cy="88" r="4" fill="#fff" stroke="#b8943a" strokeWidth="1.5"/>
+    <line x1="33" y1="88" x2="115" y2="88" stroke="#b8943a" strokeWidth="1" strokeDasharray="3,2"/>
+    <line x1="33" y1="118" x2="115" y2="118" stroke="#e07070" strokeWidth="1" strokeDasharray="3,2"/>
+    <line x1="115" y1="198" x2="115" y2="88" stroke="#b8943a" strokeWidth="1" strokeDasharray="3,2"/>
+    <line x1="137" y1="198" x2="137" y2="103" stroke="#6a7e8f" strokeWidth="1" strokeDasharray="3,2"/>
+    {/* Tax wedge */}
+    <rect x="33" y="88" width="82" height="30" fill="#b8943a" opacity=".18"/>
+    <text x="74" y="106" fill="#b8943a" fontSize="7.5" textAnchor="middle">Tax Revenue</text>
+    {/* Buyer pays */}
+    <text x="20" y="91" fill="#b8943a" fontSize="7.5" textAnchor="end">Pb</text>
+    {/* Seller receives */}
+    <text x="20" y="121" fill="#e07070" fontSize="7.5" textAnchor="end">Ps</text>
+    {/* DWL triangle */}
+    <polygon points="115,88 137,103 115,118" fill="#ff6b6b" opacity=".3"/>
+    <text x="128" y="103" fill="#e07070" fontSize="7.5">DWL</text>
+    <text x="115" y="208" fill="#b8943a" fontSize="7.5" textAnchor="middle">Qt</text>
+    <text x="137" y="208" fill="#6a7e8f" fontSize="7.5" textAnchor="middle">Q*</text>
+    {/* Tax size arrow */}
+    <line x1="252" y1="88" x2="252" y2="118" stroke="#b8943a" strokeWidth="1.5"/>
+    <line x1="248" y1="88" x2="256" y2="88" stroke="#b8943a" strokeWidth="1.5"/>
+    <line x1="248" y1="118" x2="256" y2="118" stroke="#b8943a" strokeWidth="1.5"/>
+    <text x="258" y="105" fill="#b8943a" fontSize="7.5">Tax</text>
+    <text x="258" y="113" fill="#b8943a" fontSize="7.5">= Pb-Ps</text>
+  </svg><p>Tax shifts S left. New Q (Qt &lt; Q*). Buyer pays Pb, seller receives Ps. Tax = Pb − Ps. DWL = lost transactions. Burden split by elasticities.</p></div>
+);
+
+// Subsidy diagram
+const SubsidyDiag=()=>(
+  <div className="dw"><h5>💚 Per-Unit Subsidy — Effect on Market</h5>
+  <svg viewBox="0 0 285 210" style={{maxWidth:278,width:"100%"}}>
+    <line x1="28" y1="190" x2="255" y2="190" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="28" y1="190" x2="28" y2="12" stroke="#4a7aab" strokeWidth="1.4"/>
+    <text x="141" y="205" fill="#6a7e8f" fontSize="8.5" textAnchor="middle">Quantity</text>
+    <text x="10" y="100" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,10,100)">Price ($)</text>
+    {/* Original supply */}
+    <line x1="40" y1="168" x2="220" y2="35" stroke="#c9a84c" strokeWidth="1.8" strokeDasharray="4,2"/>
+    <text x="222" y="33" fill="#c9a84c" fontSize="8">S₀</text>
+    {/* Supply after subsidy (shifts right/down) */}
+    <line x1="40" y1="188" x2="240" y2="45" stroke="#5fcc8a" strokeWidth="2"/>
+    <text x="242" y="43" fill="#5fcc8a" fontSize="9">S+sub</text>
+    {/* Demand */}
+    <line x1="40" y1="28" x2="228" y2="173" stroke="#88aaff" strokeWidth="2"/>
+    <text x="230" y="171" fill="#88aaff" fontSize="9">D</text>
+    {/* Original equilibrium */}
+    <circle cx="127" cy="98" r="4" fill="#fff" stroke="#6a7e8f" strokeWidth="1.5"/>
+    {/* New equilibrium */}
+    <circle cx="154" cy="107" r="4" fill="#fff" stroke="#5fcc8a" strokeWidth="1.5"/>
+    <line x1="28" y1="107" x2="154" y2="107" stroke="#5fcc8a" strokeWidth="1" strokeDasharray="3,2"/>
+    <line x1="28" y1="138" x2="154" y2="138" stroke="#e07070" strokeWidth="1" strokeDasharray="3,2"/>
+    <line x1="154" y1="190" x2="154" y2="107" stroke="#5fcc8a" strokeWidth="1" strokeDasharray="3,2"/>
+    {/* Subsidy wedge */}
+    <rect x="28" y="107" width="126" height="31" fill="#5fcc8a" opacity=".15"/>
+    <text x="91" y="125" fill="#5fcc8a" fontSize="7.5" textAnchor="middle">Subsidy Cost</text>
+    <text x="14" y="110" fill="#5fcc8a" fontSize="7" textAnchor="end">Pb</text>
+    <text x="14" y="141" fill="#e07070" fontSize="7" textAnchor="end">Ps</text>
+    {/* DWL from subsidy */}
+    <polygon points="127,98 154,107 127,116" fill="#ff6b6b" opacity=".25"/>
+    <text x="130" y="108" fill="#e07070" fontSize="7">DWL</text>
+  </svg><p>Subsidy shifts S right → lower price for buyers (Pb), higher price for sellers (Ps). Q increases beyond Q*. Government pays Ps − Pb per unit. Creates DWL (overproduction).</p></div>
+);
+
+// Financial Assets diagram
+const FinAssetDiag=()=>(
+  <div className="dw"><h5>📈 Financial Assets — Risk & Return Tradeoff</h5>
+  <svg viewBox="0 0 480 185" style={{maxWidth:470,width:"100%"}}>
+    <line x1="38" y1="158" x2="220" y2="158" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="38" y1="158" x2="38" y2="18" stroke="#4a7aab" strokeWidth="1.4"/>
+    <text x="129" y="173" fill="#6a7e8f" fontSize="8.5" textAnchor="middle">Risk →</text>
+    <text x="18" y="88" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,18,88)">Return →</text>
+    <line x1="46" y1="145" x2="208" y2="28" stroke="#b8943a" strokeWidth="2" strokeDasharray="4,2"/>
+    <text x="210" y="28" fill="#b8943a" fontSize="7.5">Risk-Return</text>
+    <text x="210" y="37" fill="#b8943a" fontSize="7.5">Frontier</text>
+    <circle cx="60" cy="140" r="6" fill="#4a7aab"/><text x="68" y="143" fill="#4a7aab" fontSize="7.5">T-bills</text><text x="68" y="153" fill="#4a7aab" fontSize="7">low risk, low r</text>
+    <circle cx="95" cy="122" r="6" fill="#5fcc8a"/><text x="103" y="125" fill="#5fcc8a" fontSize="7.5">Bonds</text>
+    <circle cx="135" cy="98" r="6" fill="#c9a84c"/><text x="143" y="101" fill="#c9a84c" fontSize="7.5">Stocks</text>
+    <circle cx="180" cy="58" r="6" fill="#e07070"/><text x="188" y="61" fill="#e07070" fontSize="7.5">Derivatives</text><text x="188" y="71" fill="#e07070" fontSize="7">high risk, high r</text>
+    {/* Right side: asset types comparison */}
+    <rect x="240" y="12" width="234" height="162" rx="7" fill="#101e2e" stroke="#253650" strokeWidth="1.2"/>
+    <text x="357" y="28" fill="#b8943a" fontSize="8.5" textAnchor="middle" fontWeight="bold">ASSET COMPARISON</text>
+    <text x="248" y="44" fill="#4a7aab" fontSize="8" fontWeight="bold">Bonds (Debt)</text>
+    <text x="248" y="54" fill="#a8bece" fontSize="7.5">• Fixed interest payments (coupon)</text>
+    <text x="248" y="63" fill="#a8bece" fontSize="7.5">• Face value repaid at maturity</text>
+    <text x="248" y="72" fill="#a8bece" fontSize="7.5">• Price ↑ ↔ Interest rate ↓ (INVERSE)</text>
+    <text x="248" y="87" fill="#5fcc8a" fontSize="8" fontWeight="bold">Stocks (Equity)</text>
+    <text x="248" y="97" fill="#a8bece" fontSize="7.5">• Ownership stake in firm</text>
+    <text x="248" y="106" fill="#a8bece" fontSize="7.5">• Dividends + capital gains</text>
+    <text x="248" y="115" fill="#a8bece" fontSize="7.5">• Higher risk, higher expected return</text>
+    <text x="248" y="130" fill="#c9a84c" fontSize="8" fontWeight="bold">Bond Price ↔ Interest Rate</text>
+    <text x="248" y="140" fill="#a8bece" fontSize="7.5">Fed buys bonds → demand ↑ → price ↑</text>
+    <text x="248" y="150" fill="#a8bece" fontSize="7.5">→ yield (rate) FALLS. Always inverse.</text>
+    <text x="248" y="163" fill="#e07070" fontSize="7.5">★ AP MACRO: OMO changes bond prices</text>
+  </svg><p>Higher risk = higher expected return. Bond price and interest rate always move inversely. Fed OMO works through bond prices.</p></div>
+);
+
+// Quantity Theory of Money
+const QTMDiag=()=>(
+  <div className="dw"><h5>💵 Quantity Theory of Money: MV = PQ</h5>
+  <svg viewBox="0 0 500 165" style={{maxWidth:490,width:"100%"}}>
+    {/* Main equation display */}
+    <rect x="15" y="12" width="470" height="55" rx="8" fill="#101e2e" stroke="#b8943a" strokeWidth="1.5"/>
+    <text x="55" y="40" fill="#b8943a" fontSize="20" fontWeight="bold">M</text>
+    <text x="78" y="40" fill="#f0ebe0" fontSize="20">×</text>
+    <text x="95" y="40" fill="#5fcc8a" fontSize="20" fontWeight="bold">V</text>
+    <text x="118" y="40" fill="#f0ebe0" fontSize="20">=</text>
+    <text x="135" y="40" fill="#88aaff" fontSize="20" fontWeight="bold">P</text>
+    <text x="155" y="40" fill="#f0ebe0" fontSize="20">×</text>
+    <text x="172" y="40" fill="#c9a84c" fontSize="20" fontWeight="bold">Q</text>
+    <text x="55" y="56" fill="#b8943a" fontSize="8">Money Supply</text>
+    <text x="95" y="56" fill="#5fcc8a" fontSize="8">Velocity</text>
+    <text x="135" y="56" fill="#88aaff" fontSize="8">Price Level</text>
+    <text x="172" y="56" fill="#c9a84c" fontSize="8">Real Output</text>
+    <text x="260" y="35" fill="#f0ebe0" fontSize="9">Total spending = Total nominal output</text>
+    <text x="260" y="50" fill="#7a8e9f" fontSize="8">If V and Q are constant: ΔM → ΔP (inflation)</text>
+    {/* Key implications */}
+    <rect x="15" y="78" width="148" height="76" rx="6" fill="#0a2218" stroke="#2a7a50" strokeWidth="1.2"/>
+    <text x="89" y="92" fill="#5fcc8a" fontSize="7.5" textAnchor="middle" fontWeight="bold">MONETARIST VIEW</text>
+    <text x="23" y="104" fill="#98c8a8" fontSize="7">V is stable (constant)</text>
+    <text x="23" y="114" fill="#98c8a8" fontSize="7">Q grows at natural rate</text>
+    <text x="23" y="124" fill="#98c8a8" fontSize="7">∴ M↑ → P↑ (inflation)</text>
+    <text x="23" y="134" fill="#98c8a8" fontSize="7">∴ Printing money =</text>
+    <text x="23" y="143" fill="#98c8a8" fontSize="7">   inflation in LR</text>
+    <rect x="172" y="78" width="150" height="76" rx="6" fill="#280a0a" stroke="#8a2020" strokeWidth="1.2"/>
+    <text x="247" y="92" fill="#e07070" fontSize="7.5" textAnchor="middle" fontWeight="bold">LR INFLATION RULE</text>
+    <text x="180" y="104" fill="#d8a0a0" fontSize="7">%ΔM = %ΔP + %ΔQ − %ΔV</text>
+    <text x="180" y="114" fill="#d8a0a0" fontSize="7">If V stable, Q grows 3%:</text>
+    <text x="180" y="124" fill="#d8a0a0" fontSize="7">M grows 8% → inflation ≈ 5%</text>
+    <text x="180" y="134" fill="#d8a0a0" fontSize="7">Fed targets low inflation by</text>
+    <text x="180" y="144" fill="#d8a0a0" fontSize="7">controlling M growth rate</text>
+    <rect x="331" y="78" width="154" height="76" rx="6" fill="#001e1c" stroke="#00c8b4" strokeWidth="1.2"/>
+    <text x="408" y="92" fill="#00c8b4" fontSize="7.5" textAnchor="middle" fontWeight="bold">★ AP MACRO POINTS</text>
+    <text x="339" y="104" fill="#80e8e0" fontSize="7">MV = PQ identity always holds</text>
+    <text x="339" y="114" fill="#80e8e0" fontSize="7">Classical: LR money is neutral</text>
+    <text x="339" y="124" fill="#80e8e0" fontSize="7">(↑M only raises P, not Q)</text>
+    <text x="339" y="134" fill="#80e8e0" fontSize="7">Keynesian: SR M↑ may raise Q</text>
+    <text x="339" y="144" fill="#80e8e0" fontSize="7">Tested: "What causes LR inflation?"</text>
+  </svg><p>M = money supply. V = velocity (times money turns over). P = price level. Q = real output. Key: long-run money growth causes proportional inflation.</p></div>
+);
+
+// Supply-Side Growth Policy
+const SupplySideDiag=()=>(
+  <div className="dw"><h5>📈 Supply-Side Policy & Long-Run Growth</h5>
+  <svg viewBox="0 0 310 210" style={{maxWidth:305,width:"100%"}}>
+    <line x1="33" y1="188" x2="278" y2="188" stroke="#4a7aab" strokeWidth="1.4"/>
+    <line x1="33" y1="188" x2="33" y2="12" stroke="#4a7aab" strokeWidth="1.4"/>
+    <text x="155" y="203" fill="#6a7e8f" fontSize="8.5" textAnchor="middle">Real GDP</text>
+    <text x="13" y="100" fill="#6a7e8f" fontSize="8.5" textAnchor="middle" transform="rotate(-90,13,100)">Price Level</text>
+    <line x1="46" y1="26" x2="232" y2="175" stroke="#5fcc8a" strokeWidth="1.8" strokeDasharray="4,2"/>
+    <text x="233" y="173" fill="#5fcc8a" fontSize="8">AD</text>
+    <line x1="46" y1="168" x2="182" y2="46" stroke="#c9a84c" strokeWidth="1.8" strokeDasharray="4,2"/>
+    <text x="184" y="44" fill="#c9a84c" fontSize="8">SRAS₁</text>
+    <line x1="33" y1="155" x2="33" y2="25" stroke="#e07070" strokeWidth="1.8" strokeDasharray="5,3"/>
+    <text x="36" y="22" fill="#e07070" fontSize="7.5">LRAS₁</text>
+    {/* After supply-side policy */}
+    <line x1="90" y1="168" x2="238" y2="46" stroke="#b8943a" strokeWidth="2"/>
+    <text x="240" y="44" fill="#b8943a" fontSize="8">SRAS₂</text>
+    <line x1="88" y1="155" x2="88" y2="25" stroke="#b8943a" strokeWidth="2" strokeDasharray="5,3"/>
+    <text x="91" y="22" fill="#b8943a" fontSize="7.5">LRAS₂</text>
+    {/* Equilibria */}
+    <circle cx="113" cy="108" r="4" fill="#fff" stroke="#e07070" strokeWidth="1.5"/>
+    <circle cx="163" cy="96" r="4" fill="#fff" stroke="#b8943a" strokeWidth="1.5"/>
+    <line x1="33" y1="108" x2="113" y2="108" stroke="#e07070" strokeWidth="1" strokeDasharray="2,2"/>
+    <line x1="33" y1="96" x2="163" y2="96" stroke="#b8943a" strokeWidth="1" strokeDasharray="2,2"/>
+    <text x="28" y="111" fill="#e07070" fontSize="7" textAnchor="end">PL₁</text>
+    <text x="28" y="99" fill="#b8943a" fontSize="7" textAnchor="end">PL₂↓</text>
+    <text x="113" y="198" fill="#e07070" fontSize="7" textAnchor="middle">Y₁</text>
+    <text x="163" y="198" fill="#b8943a" fontSize="7" textAnchor="middle">Y₂↑</text>
+    <path d="M 125 75 L 148 75" stroke="#b8943a" strokeWidth="1.5" markerEnd="url(#ss1)"/>
+    <text x="133" y="70" fill="#b8943a" fontSize="7.5">Growth</text>
+    <defs><marker id="ss1" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><polygon points="0,0 5,2.5 0,5" fill="#b8943a"/></marker></defs>
+  </svg><p>Supply-side policies shift SRAS and LRAS rightward. Output rises (Y₁→Y₂) and price level falls (PL₁→PL₂). Sustainable long-run growth without inflation.</p></div>
+);
+
+// International Capital Flows
+const CapFlowDiag=()=>(
+  <div className="dw"><h5>🌐 Real Interest Rates & International Capital Flows</h5>
+  <svg viewBox="0 0 500 185" style={{maxWidth:490,width:"100%"}}>
+    {/* Left: Country A raises rates */}
+    <rect x="12" y="12" width="226" height="162" rx="7" fill="#101e2e" stroke="#b8943a" strokeWidth="1.2"/>
+    <text x="125" y="28" fill="#b8943a" fontSize="8.5" textAnchor="middle" fontWeight="bold">US RAISES INTEREST RATES</text>
+    <text x="20" y="45" fill="#c0d0dc" fontSize="7.5">US real interest rate rises (r↑)</text>
+    <text x="20" y="58" fill="#c0d0dc" fontSize="7.5">→ US assets more attractive</text>
+    <text x="20" y="71" fill="#c0d0dc" fontSize="7.5">→ Foreign capital INFLOWS to US</text>
+    <text x="20" y="84" fill="#c0d0dc" fontSize="7.5">→ Demand for US dollars ↑</text>
+    <text x="20" y="97" fill="#c0d0dc" fontSize="7.5">→ Dollar APPRECIATES</text>
+    <text x="20" y="110" fill="#c0d0dc" fontSize="7.5">→ US exports more expensive</text>
+    <text x="20" y="123" fill="#c0d0dc" fontSize="7.5">→ US imports cheaper</text>
+    <text x="20" y="136" fill="#c0d0dc" fontSize="7.5">→ Net exports (Xn) FALL</text>
+    <text x="20" y="149" fill="#e07070" fontSize="7.5">→ AD shifts LEFT (partially offsets</text>
+    <text x="20" y="160" fill="#e07070" fontSize="7.5">   expansionary policy)</text>
+    {/* Right: Full chain */}
+    <rect x="248" y="12" width="244" height="162" rx="7" fill="#101e2e" stroke="#5fcc8a" strokeWidth="1.2"/>
+    <text x="370" y="28" fill="#5fcc8a" fontSize="8.5" textAnchor="middle" fontWeight="bold">COMPLETE CHAIN TO MEMORIZE</text>
+    <text x="256" y="45" fill="#b8943a" fontSize="7.5">r↑ (Fed raises rates)</text>
+    <text x="290" y="54" fill="#7a8e9f" fontSize="7">↓</text>
+    <text x="256" y="64" fill="#c0d0dc" fontSize="7.5">Capital inflows: foreign invest in US</text>
+    <text x="290" y="73" fill="#7a8e9f" fontSize="7">↓</text>
+    <text x="256" y="82" fill="#c0d0dc" fontSize="7.5">Demand for $ ↑ → $ appreciates</text>
+    <text x="290" y="91" fill="#7a8e9f" fontSize="7">↓</text>
+    <text x="256" y="100" fill="#c0d0dc" fontSize="7.5">US exports ↓, imports ↑</text>
+    <text x="290" y="109" fill="#7a8e9f" fontSize="7">↓</text>
+    <text x="256" y="118" fill="#c0d0dc" fontSize="7.5">Net exports (Xn) fall</text>
+    <text x="290" y="127" fill="#7a8e9f" fontSize="7">↓</text>
+    <text x="256" y="136" fill="#e07070" fontSize="7.5">AD shifts LEFT → output &amp; PL fall</text>
+    <line x1="256" y1="148" x2="484" y2="148" stroke="#253650" strokeWidth="1"/>
+    <text x="256" y="160" fill="#00c8b4" fontSize="7">★ Works in reverse: r↓ → capital outflows</text>
+    <text x="256" y="170" fill="#00c8b4" fontSize="7">→ $ depreciates → Xn↑ → AD right</text>
+  </svg><p>Interest rate differentials drive international capital flows, which affect exchange rates, net exports, and ultimately aggregate demand. AP Macro Unit 6 core topic.</p></div>
+);
+
+
+const BudgetDiag=()=>(
+  <div className="dw"><h5>💰 Budget Line (Individual Economizing Problem)</h5>
+  <svg viewBox="0 0 260 200" style={{maxWidth:255,width:"100%"}}>
+    <line x1="30" y1="178" x2="228" y2="178" stroke="#4a7aab" strokeWidth="1.5"/>
+    <line x1="30" y1="178" x2="30" y2="15" stroke="#4a7aab" strokeWidth="1.5"/>
+    <polygon points="228,175 235,178 228,181" fill="#4a7aab"/>
+    <polygon points="27,15 30,8 33,15" fill="#4a7aab"/>
+    <text x="129" y="194" fill="#6a7e8f" fontSize="9" textAnchor="middle">Good X (e.g. pizza)</text>
+    <text x="12" y="97" fill="#6a7e8f" fontSize="9" textAnchor="middle" transform="rotate(-90,12,97)">Good Y (e.g. movies)</text>
+    <line x1="35" y1="22" x2="215" y2="168" stroke="#b8943a" strokeWidth="2.2"/>
+    <text x="217" y="166" fill="#b8943a" fontSize="8">Budget Line</text>
+    <text x="75" y="145" fill="#5fcc8a" fontSize="9">✓ Affordable</text>
+    <text x="148" y="78" fill="#e07070" fontSize="9">✗ Unaffordable</text>
+    <text x="35" y="18" fill="#7a8e9f" fontSize="8">Max Y</text>
+    <text x="198" y="176" fill="#7a8e9f" fontSize="8">Max X</text>
+    <text x="80" y="108" fill="#b8943a" fontSize="7.5" transform="rotate(-38,80,108)">slope = -Px/Py</text>
+  </svg><p>Points ON line: income fully spent. Points INSIDE: affordable but income not fully spent. OUTSIDE: unaffordable. Income↑ = parallel shift out. Price of X falls = X-intercept moves right (rotation).</p></div>
+);
+
 /* ═══════════════ JSX HELPERS ═══════════════ */
 const B=({t,c})=><div className="sb0"><h5>{t}</h5><p>{c}</p></div>;
 const D=({t,c})=><div className="db"><h5>{t}</h5><p>{c}</p></div>;
@@ -612,9 +1257,15 @@ const part2=[
     "Price Controls":<><PriceDiag/><D t="Price Ceiling (Maximum Price Set Below Equilibrium)" c="Binding price ceiling → Qd > Qs → shortage. Examples: rent control (NYC), gas price caps 1970s. Side effects: black markets, non-price rationing (waiting lists, discrimination), quality deterioration, reduced investment in the good."/><D t="Price Floor (Minimum Price Set Above Equilibrium)" c="Binding price floor → Qs > Qd → surplus. Examples: minimum wage (labor market), agricultural price supports. Side effects: unemployment (if in labor market), excess supply that must be purchased or disposed of."/><E t="Rent Control in NYC" c="Decades of below-market rent → housing shortage, long waiting lists, landlords stop maintaining properties, black market for key money. Perfect textbook price ceiling outcome."/></>,
     "AP Tips":<AP c={["Memorize all 8 S&D scenarios: each shift direction × each curve. Know P and Q effects.","Change in demand (shift) vs. change in quantity demanded (movement) — tested every single year.","Price ceiling BELOW P* = shortage. Price floor ABOVE P* = surplus. Never mix these up.","Normal good: income ↑ → D right. Inferior good: income ↑ → D left."]}/>
   }},
+  {id:"taxsub",icon:"💸",title:"Government Intervention: Taxes, Subsidies & Price Controls",sub:"AP Micro Topic 2.8 — Per-unit tax, subsidy, DWL, burden sharing",tabs:["Simple","Diagrams","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="Governments intervene in markets in four main ways: (1) Price ceilings — max price below equilibrium → shortage. (2) Price floors — min price above equilibrium → surplus. (3) Per-unit taxes — shift supply left → higher buyer price, lower seller price, less output, DWL. (4) Per-unit subsidies — shift supply right → lower buyer price, higher seller price, more output, DWL. All four create deadweight loss (inefficiency)."/></>,
+    Diagrams:<><TaxDiag/><SubsidyDiag/></>,
+    "In-Depth":<><D t="Per-Unit Tax — Full Analysis" c="A per-unit tax on sellers shifts the supply curve LEFT by the amount of the tax. New equilibrium: lower quantity (Qt < Q*), higher buyer price (Pb), lower seller price (Ps). The tax = Pb − Ps. Government revenue = tax × Qt (rectangle). DWL = triangle between Qt and Q* under demand and above supply. Tax burden is shared: buyers pay Pb − P*, sellers pay P* − Ps. The MORE inelastic side bears the GREATER burden."/><D t="Tax Burden and Elasticity" c="The key insight: who bears the tax burden has NOTHING to do with who legally pays it. It depends entirely on relative elasticities. If demand is perfectly inelastic (vertical): buyers bear 100% of the tax. If supply is perfectly inelastic: sellers bear 100%. If demand is more inelastic than supply: buyers bear more. The less able you are to change your behavior (less elastic), the more of the burden you bear."/><D t="Per-Unit Subsidy — Full Analysis" c="A per-unit subsidy on sellers shifts supply RIGHT by the subsidy amount. New equilibrium: higher quantity (Qs > Q*), lower buyer price (Pb), higher seller price (Ps). Government cost = subsidy × Qs. DWL = triangle between Q* and Qs (the overproduction inefficiency). Subsidy causes market to overproduce beyond the socially optimal quantity."/><APX t="Tax vs. Subsidy on AP FRQs" c="AP Micro Topic 2.8 is heavily tested. You must be able to: (1) Draw both tax and subsidy diagrams with all labels (Pb, Ps, Qt, tax wedge, DWL shaded). (2) Calculate government revenue (tax) or government cost (subsidy). (3) Determine who bears more burden by comparing elasticities. (4) Explain why both create DWL. Remember: a tax on buyers shifts demand LEFT, not supply — same final result but drawn differently."/></>,
+    "AP Tips":<AP c={["Tax on sellers: S shifts LEFT. Tax on buyers: D shifts LEFT. Both create same Pb, Ps, Qt — just drawn differently.","DWL from tax = triangle between old Q* and new Qt. MUST shade it on the FRQ diagram.","Burden rule: more inelastic side bears more burden. Cigarette tax: demand inelastic → buyers bear most.","Subsidy creates overproduction DWL. Tax creates underproduction DWL. Both are inefficiencies."]}/>
+  }},
   {id:"mf",icon:"🏛️",title:"Market Failures: Externalities, Public Goods, Surplus",sub:"Ch 4 — When markets under- or overproduce",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
     Simple:<><B t="Consumer & Producer Surplus" c="Consumer Surplus (CS) = what buyers were willing to pay MINUS what they actually paid. Area above P*, below demand curve. Producer Surplus (PS) = price received minus minimum acceptable price. Area below P*, above supply curve. Total Surplus = CS + PS = maximized at free market equilibrium. Any distortion → Deadweight Loss."/><Dl t="Four Types of Market Failure" items={["Public Goods: non-excludable AND non-rival. Free-rider problem. Markets underprovide. Govt must provide (defense, lighthouses, clean air).","Negative Externalities: costs imposed on third parties. Social cost > private cost → market overproduces. Solution: Pigouvian tax.","Positive Externalities: benefits to third parties. Social benefit > private benefit → market underproduces. Solution: subsidy.","Information Asymmetry: one party knows more than the other (used cars, insurance). Leads to adverse selection and moral hazard."]}/></>,
-    Diagram:<><SurplusDiag/></>,
+    Diagram:<><SurplusDiag/><ExternalityDiag/></>,
     "In-Depth":<><D t="Optimal Externality Reduction" c="Government should reduce negative externalities until MB of reduction = MC of reduction. FULL elimination is never optimal — last unit of pollution removal costs more than the benefit. This is the efficient quantity of pollution reduction, where the MC and MB curves for abatement intersect."/><D t="Public Goods — Free Rider Problem" c="If good is non-excludable, people consume it without paying. No one has incentive to pay voluntarily. Private firms can't profit → provide none or too little. Government must provide or subsidize, funded by taxation (compulsory payment to prevent free riding)."/><D t="Information Asymmetry" c="Adverse selection: high-risk buyers are more likely to purchase insurance (insurer can't distinguish). Moral hazard: once insured, people take more risks (insurer can't monitor behavior). Solutions: signaling, screening, warranties, government mandates."/><APX t="Quasi-Public Goods (AP Extra)" c="Excludable but non-rival (up to a point): toll roads, streaming services, national parks. Markets can provide them but may under-price due to non-rivalry. Government often subsidizes or provides them. These appear on AP FRQs more than the textbook covers."/></>,
     "AP Tips":<AP c={["Public goods: BOTH non-excludable AND non-rival. Fire station is excludable (club good). Know difference.","Negative externality → tax to internalize social cost. Positive externality → subsidy to increase quantity toward social optimum.","DWL = triangle between old and new Q. Must draw AND shade it correctly — FRQ requirement.","Total surplus maximized at P*. Any price control, tax, or market power creates DWL."]}/>
   }},
@@ -627,7 +1278,13 @@ const part2=[
     Simple:<><B t="Plain English" c="Societies are not equal — some people earn far more than others. The Lorenz Curve visualizes income inequality by showing what percentage of total income the bottom X% of the population actually earns. The further the curve bows away from the 45° equality line, the more unequal the distribution."/></>,
     Diagram:<><LorenzDiag/></>,
     "In-Depth":<><D t="Reading the Lorenz Curve" c="The 45° line (line of perfect equality): every 10% of the population earns exactly 10% of income. Actual Lorenz curve bows below. Example: bottom 40% of US population earns about 10% of income. Top 20% earns about 50%. The greater the bowing, the more inequality."/><D t="Gini Coefficient" c="Gini = Area A / (Area A + Area B). Ranges from 0 (perfect equality) to 1 (one person owns everything). US Gini ≈ 0.39. Nordic countries ≈ 0.25–0.30. Brazil ≈ 0.48. Higher Gini = more inequality. Gini has risen in the US since 1970."/><Dl t="Causes of Income Inequality" items={["Ability differences (innate talent, intelligence)","Education and training (human capital investment)","Discrimination (race, gender wage gaps)","Luck, connections, and being in the right place","Unequal distribution of wealth (inherited assets)","Market power of certain occupations"]}/><D t="Equality vs. Efficiency Tradeoff" c="More redistribution (taxes/transfers) reduces inequality but may reduce incentives to work and invest → lower efficiency and output. Less redistribution preserves incentives but increases inequality. Policymakers must choose where on this tradeoff to sit. No objectively correct answer — normative judgment."/></>,
-    "AP Tips":<AP c={["Lorenz curve: further from 45° line → more inequality → higher Gini.","Gini coefficient: 0 = perfect equality, 1 = perfect inequality. Know the direction.","AP Micro uses this in income distribution FRQs. Know what shifts the Lorenz curve toward/away from equality.","Government redistribution (progressive taxes, transfers) moves Lorenz toward equality (lower Gini)."]}/>
+    "AP Tips":<AP c={["Lorenz curve: further from 45° line → more inequality → higher Gini.","Gini coefficient: 0 = perfect equality, 1 = perfect inequality. Know the direction.","⚠️ EXCLUSION: AP Micro CED explicitly states drawing the Lorenz curve AND calculating the Gini coefficient are BEYOND THE SCOPE of the AP Exam. You must understand what they represent and how to interpret them, but you will NOT be asked to draw the curve or calculate the Gini on a FRQ.","Government redistribution (progressive taxes, transfers) moves Lorenz toward equality (lower Gini)."]}/> 
+  }},
+  {id:"domtariff",icon:"🌍",title:"Tariff — Domestic Market Analysis",sub:"AP Micro Topic 2.9 — World price, imports, DWL triangles b+d",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="A tariff is a tax on imported goods. At the world price (Pw), domestic producers supply less than consumers demand so the gap is filled by imports. A tariff raises domestic price above Pw — helps domestic producers but hurts consumers and creates two DWL triangles."/><B t="Five Key Areas" c="a = producer surplus gain (domestic firms). b = DWL on production side. c = government tariff revenue. d = DWL on consumption side. CS loss = a+b+c+d. Net welfare loss = b+d (only the triangles are deadweight loss)."/></>,
+    Diagram:<><DomTariffDiag/></>,
+    "In-Depth":<><D t="Free Trade Baseline" c="At world price Pw: domestic quantity supplied (Qs_w) < domestic quantity demanded (Qd_w). Gap = imports. Consumer surplus is maximized; producer surplus smaller than under protection."/><D t="Effect of a Tariff" c="Tariff raises price from Pw to Pw+tariff. Domestic production rises to Qs_t. Demand falls to Qd_t. Imports shrink. CS falls by a+b+c+d. PS rises by a. Govt collects c. Net welfare loss = b+d."/><D t="Quota vs. Tariff" c="Identical effect on price and quantity. Critical difference: tariff → government collects area c as revenue. Quota → area c goes to whoever holds import licenses (often foreign exporters). Net DWL same (b+d) but tariff preferred from national welfare view."/></>,
+    "AP Tips":<AP c={["Draw and label ALL areas: a (PS gain), b (DWL prod. side), c (govt revenue), d (DWL cons. side).","DWL = triangles b+d ONLY. Rectangle c is revenue — not deadweight loss.","Tariff vs quota: same P and Q effects but tariff → govt revenue; quota → importers capture area c.","AP Micro Topic 2.9: 'Identify DWL from a tariff' → shade ONLY triangles b and d."]}/>
   }},
 ];
 
@@ -638,8 +1295,9 @@ const part3=[
     "In-Depth":<><Dl t="Determinants of Price Elasticity of Demand" items={["Availability of substitutes: more subs → more elastic (Pepsi vs. brand-name cereal)","Necessity vs. luxury: necessities (insulin) inelastic; luxuries (yacht) elastic","Budget share: larger share → more elastic (housing vs. salt)","Time horizon: more time → more elastic (can find substitutes, adjust behavior)","Breadth of market definition: broad (food) inelastic; narrow (Doritos) elastic"]}/><D t="Price Elasticity of Supply" c="Immediate period: perfectly inelastic (supply fixed — Picasso painting auction). Short run: somewhat inelastic (partial adjustment). Long run: more elastic (full adjustment, entry possible). Time is the key determinant of supply elasticity."/><APX t="Midpoint Formula for PED (AP Calculation Extra)" c="PED = [(Q2-Q1)/((Q2+Q1)/2)] / [(P2-P1)/((P2+P1)/2)]. The AP exam provides this formula but expects you to use it correctly. The midpoint method avoids asymmetry: going from $5 to $10 gives the same elasticity as $10 to $5."/></>,
     "AP Tips":<AP c={["Total Revenue Test is the fastest AP elasticity method — know it perfectly.","Cross elasticity: POSITIVE = substitutes (Coke & Pepsi). NEGATIVE = complements (cars & gas). ZERO = unrelated.","Perfectly inelastic demand = VERTICAL curve. Perfectly elastic = HORIZONTAL curve. Both extremes tested.","AP will give you a table or graph and ask you to calculate PED. Use midpoint formula."]}/>
   }},
-  {id:"util",icon:"😊",title:"Utility Maximization",sub:"Ch 7 — How consumers maximize satisfaction",tabs:["Simple","In-Depth","Examples","AP Tips"],cnt:{
+  {id:"util",icon:"😊",title:"Utility Maximization",sub:"Ch 7 — How consumers maximize satisfaction",tabs:["Simple","Diagram","In-Depth","Examples","AP Tips"],cnt:{
     Simple:<><B t="Plain English" c="Utility = satisfaction from consuming a good. Marginal utility = extra satisfaction from one more unit. Law of Diminishing Marginal Utility: each additional unit gives LESS satisfaction than the previous one (1st slice >> 4th slice). You maximize utility by spreading spending so the last dollar on each good gives equal marginal utility."/><B t="The Rule" c="Maximize total utility when: MU_x / P_x = MU_y / P_y. 'The bang per buck must be equal across all goods.' If MU/P is higher for X, buy more X until equality is restored."/></>,
+    Diagram:<><UtilityDiag/><D t="Reading the TU/MU Graph" c="TU rises quickly at first (high MU), then more slowly (falling MU), peaks when MU=0, may then decline (negative MU). The MU curve is the slope of TU at each point. AP Micro requires drawing BOTH curves with correct shape and MU=0 / TU-max relationship labeled."/></>,
     "In-Depth":<><D t="Law of Diminishing Marginal Utility" c="As consumption increases, MU eventually falls. Explains downward-sloping demand curve: you'll only buy more of a good at a lower price because each unit is worth less to you. This is the link between consumer theory and demand."/><D t="Diamond-Water Paradox" c="Water is essential but cheap. Diamonds are trivial luxuries but expensive. Why? We have so much water that the MARGINAL utility of one more unit is tiny. Few diamonds → MU of one more is enormous. Exchange value determined by marginal utility, not total utility."/><D t="Income and Substitution Effects" c="When price falls: (1) Substitution effect — good is now cheaper relative to others → buy more. (2) Income effect — real purchasing power rises → can afford more of all goods. Both typically increase Qd → law of demand holds. (Giffen goods: income effect dominates and is negative → rare violation of law of demand.)"/></>,
     Examples:<><E t="Budget Allocation Example" c="$10 budget. Pizza $2, coffee $1. MU of last pizza = 20; MU of last coffee = 5. MU/P: pizza = 10; coffee = 5. Buy more pizza! Each dollar on pizza gives 10 utils vs. 5 for coffee. Shift spending from coffee to pizza until ratios equalize."/></>,
     "AP Tips":<AP c={["AP will give you a table of MUs and ask: optimal bundle? → Find where MU_x/P_x = MU_y/P_y.","If MU_x/P_x > MU_y/P_y → buy more X and less Y. State this direction clearly on FRQs.","Diminishing MU explains downward-sloping demand — both concepts tested together."]}/>
@@ -648,7 +1306,7 @@ const part3=[
     Simple:<><B t="Plain English" c="An indifference curve (IC) shows all combinations of two goods that give a consumer the SAME total utility (equal satisfaction). Higher ICs = more utility. The consumer's optimum is where the HIGHEST attainable IC just touches (is tangent to) the budget line."/></>,
     Diagram:<><IndiffDiag/></>,
     "In-Depth":<><D t="Properties of Indifference Curves" c="(1) Downward sloping: to stay on same utility level, if you get more X, you must give up some Y. (2) Cannot cross: would imply contradictory preferences. (3) Convex to origin: reflects diminishing MRS — as you get more X, you're willing to give up less Y for even more X. (4) Higher = better (more utility)."/><D t="Marginal Rate of Substitution (MRS)" c="MRS = the rate at which a consumer willingly trades Y for X (staying on the same IC). MRS = MU_x / MU_y = slope of IC (absolute value). Diminishing MRS: as you consume more X, you're less willing to sacrifice Y for more X (convexity)."/><D t="Consumer Optimum" c="Highest IC tangent to budget line. At tangency: slope of IC = slope of budget line → MRS = P_x / P_y → MU_x/P_x = MU_y/P_y. This is the same condition as the utility-maximizing rule — just stated graphically."/><D t="Price Change and Income Change Effects" c="Price of X falls → budget line rotates outward on X axis → consumer moves to higher IC. New optimum on higher IC. Can decompose into substitution effect (rotate along old IC) and income effect (shift to new IC) — graphical version of what we covered in utility max."/></>,
-    "AP Tips":<AP c={["Indifference curves appear more in AP Micro FRQs than the main text suggests — know the properties cold.","At optimum: MRS = Px/Py. Equivalently: MU_x/P_x = MU_y/P_y. Both say the same thing.","ICs cannot cross — if asked why, state it would imply A is both preferred to and indifferent from B, a contradiction.","Budget line rotation (price change) vs. budget line shift (income change) — draw both confidently."]}/>
+    "AP Tips":<AP c={["⚠️ IMPORTANT: The AP Micro CED explicitly states: indifference curves are BEYOND THE SCOPE of the AP Micro Exam. The content here is labeled AP Extra and draws on the textbook appendix — good background knowledge and may help you think through problems, but you will NOT be asked to draw indifference curves on AP Micro FRQs.","Indifference curves are covered in AP Micro course materials (textbook Chapter 7 Appendix) but are explicitly excluded from exam scope by the CED.","At optimum: MRS = Px/Py. Equivalently: MU_x/P_x = MU_y/P_y. Both say the same thing.","ICs cannot cross — if asked why, state it would imply A is both preferred to and indifferent from B, a contradiction.","Budget line rotation (price change) vs. budget line shift (income change) — draw both confidently."]}/>
   }},
   {id:"beh",icon:"🧠",title:"Behavioral Economics",sub:"Ch 8 — Why people don't always act rationally",tabs:["Simple","In-Depth","AP Tips"],cnt:{
     Simple:<><B t="Plain English" c="Traditional economics assumes perfectly rational people. Behavioral economics documents predictable, systematic ways people are NOT rational. Understanding these helps explain real decisions — and design better policies through 'nudges' (choice architecture that makes the good option the default)."/></>,
@@ -658,6 +1316,12 @@ const part3=[
 ];
 
 const part4=[
+  {id:"prodfn",icon:"⚙️",title:"The Production Function",sub:"AP Micro Topic 3.1 — TP, MP, AP, Diminishing Returns",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="A production function shows how inputs (workers) turn into outputs (units produced). Three measures: Total Product (TP) = total output. Marginal Product (MP) = output from ONE more worker. Average Product (AP) = output per worker (TP ÷ L). Law of Diminishing Marginal Returns: at some point, adding more workers to a fixed factory causes each extra worker to add LESS output — not because they're lazy, but because the factory gets crowded."/></>,
+    Diagram:<><ProdFnDiag/></>,
+    "In-Depth":<><D t="Three Product Measures" c="Total Product (TP): all output from current workers. Marginal Product (MP) = ΔTP/ΔL — the extra output from hiring one more worker. Average Product (AP) = TP/L — output per worker. These three are always related: when MP > AP, AP is rising. When MP < AP, AP is falling. MP = AP at AP's maximum."/><D t="Law of Diminishing Marginal Returns" c="In the short run, with at least one fixed input (factory), adding more of the variable input (labor) eventually causes MP to fall. This happens because workers start competing for the same machines, space, and materials. IMPORTANT: diminishing returns begin when MP PEAKS and starts falling — NOT when MP becomes negative."/><D t="Connection to Cost Curves" c="When MP rises, MC falls (more output per worker = lower cost per unit). When MP falls (diminishing returns), MC rises. The MP curve and MC curve are mirror images: MP peaks where MC is at its minimum. This is why the MC curve is U-shaped."/><APX t="Production Function on the AP Exam" c="AP Micro Topic 3.1 requires you to: (1) Draw correctly labeled TP and MP/AP graphs. (2) Identify where diminishing returns begin (MP peak). (3) Calculate MP and AP from a table. (4) Explain why TP is concave (bowed downward) in the diminishing returns zone. The TP curve inflects (changes from accelerating to decelerating) exactly where MP peaks."/></>,
+    "AP Tips":<AP c={["Diminishing returns ≠ negative returns. Returns diminish when MP starts falling, NOT when TP falls.","MP intersects AP at AP's maximum. This is exactly like MC intersecting ATC at ATC's minimum — same math.","On the AP FRQ: 'At what level of labor do diminishing marginal returns begin?' → where MP starts falling (its peak).","Given a table of TP values: MP = change in TP. AP = TP ÷ L. You must be able to calculate these numerically."]}/>
+  }},
   {id:"costs",icon:"💰",title:"Businesses & Costs of Production",sub:"Ch 9 — Explicit, implicit, economic profit, cost curves",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
     Simple:<><B t="Key Definitions" c="Explicit costs: actual cash payments (wages, rent). Implicit costs: opportunity costs of own resources (your time, your building). Accounting profit = TR - explicit costs. Economic profit = TR - explicit - implicit costs. Normal profit = economic profit = 0 (all resources earning exactly their opportunity cost)."/><Dl t="Cost Concepts — Know All Six" items={["Fixed Costs (FC): Don't vary with output (rent, insurance, equipment leases)","Variable Costs (VC): Vary with output (labor, materials, energy)","Total Cost (TC) = FC + VC","ATC = TC/Q = AFC + AVC","AVC = VC/Q","MC = ΔTC/ΔQ — THE MOST IMPORTANT COST — always determines profit-maximizing output"]}/></>,
     Diagram:<><CostDiag/></>,
@@ -676,6 +1340,17 @@ const part4=[
     "In-Depth":<><D t="Barriers to Entry" c="Natural monopoly (huge economies of scale — utilities, rail). Legal barriers (patents, copyrights, licenses). Essential resource ownership (DeBeers and diamonds historically). Strategic barriers (predatory pricing to drive out rivals)."/><D t="Economic Effects vs. Pure Competition" c="Higher price, lower output, economic profit (sustained by barriers), income transfer from consumers to monopolist, deadweight loss (allocative inefficiency), possible X-inefficiency (complacency without competition)."/><D t="Price Discrimination" c="Charging different prices to different buyers for same product. Conditions: market power, distinguishable buyers with different elasticities, no resale possible. First degree (perfect): charge each buyer their maximum WTP → captures ALL consumer surplus, no DWL but max profit. Third degree (most common): students vs. adults, business vs. economy flights."/><D t="Regulated Monopoly" c="Socially optimal price: P = MC (allocatively efficient but may cause losses if P < ATC). Fair-return price: P = ATC (allows normal profit, sustainable). Dilemma: MC regulation requires subsidy; ATC regulation leaves some allocative inefficiency."/></>,
     "AP Tips":<AP c={["Monopolist has NO supply curve (no unique P-Q relationship). AP exam tests this directly.","Always: MR < P for monopolist because demand slopes down. MR = P only for perfect competitor.","Draw: find MR = MC → drop to Q axis (Qm) → rise to DEMAND curve (NOT MR) for Pm. Critical step.","Monopoly always charges on the ELASTIC portion of demand (where MR > 0) at profit max."]}/>
   }},
+  {id:"natmonop",icon:"🏭",title:"Natural Monopoly & Regulation",sub:"AP Micro required diagram — declining LRATC, two regulation options",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="A natural monopoly exists when one firm can supply the entire market at lower cost than two or more firms could. This happens when economies of scale are so large that ATC keeps falling across the whole range of market demand — so having multiple firms would mean each produces at a higher cost. Examples: water utilities, electricity grids, rail lines. The government typically allows the monopoly but regulates its price."/></>,
+    Diagram:<><NatMonopDiag/></>,
+    "In-Depth":<><D t="Why Natural Monopoly Exists" c="Huge fixed costs (pipes, power lines, rail tracks) spread over more output → ATC keeps declining. A second firm would have to duplicate these fixed costs, making both firms' ATC higher than if one firm served everyone. The market 'naturally' tends to a single supplier. ATC > MC everywhere (MC is always below ATC when ATC is declining)."/><D t="Unregulated Outcome (Pm, Qm)" c="Without regulation, the monopolist sets MR = MC → Qm and charges Pm (read from demand curve). Earns economic profit. Pm > MC → allocatively inefficient. Consumers pay too much, too little is produced relative to social optimum."/><D t="Socially Optimal Regulation: P = MC" c="Setting P = MC achieves allocative efficiency (price reflects true social cost). But for a natural monopoly, MC < ATC everywhere, so P = MC < ATC → the firm earns a loss. Government must provide a subsidy to keep the firm operating. Produces Qs > Qm at price Ps < Pm."/><D t="Fair-Return Regulation: P = ATC" c="Setting P = ATC allows the firm to earn exactly normal profit (zero economic profit — covers all costs including opportunity costs). Not allocatively efficient (P > MC) but avoids the subsidy problem. Produces Qf between Qm and Qs. The practical compromise: less DWL than unregulated, no subsidy needed."/></>,
+    "AP Tips":<AP c={["Natural monopoly: ATC always declining, MC always below ATC. This is what makes the diagram distinct from regular monopoly.","Two regulation options on the diagram: P=MC (allocatively efficient but causes loss) vs P=ATC (normal profit, second-best).","AP Micro FRQ: 'Show the fair-return price on the diagram' → where demand intersects ATC. 'Show socially optimal price' → where demand intersects MC.","Socially optimal P=MC causes a LOSS (ATC > P) → requires govt subsidy to be sustainable."]}/>
+  }},
+  {id:"govintmkt",icon:"⚖️",title:"Government Intervention Across Market Structures",sub:"AP Micro Topic 6.4 — Tax/subsidy effects differ by market type",tabs:["Simple","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="A per-unit tax or subsidy doesn't work the same way in every market. In a perfectly competitive market, the burden is shared between buyers and sellers based on elasticities, and the firm is a price taker so it just adjusts quantity. In a monopoly, the firm has pricing power — a tax may cause a larger price increase than in competition, and the DWL compounds on top of existing monopoly DWL."/></>,
+    "In-Depth":<><D t="Tax in a Perfectly Competitive Market" c="Tax shifts MC/supply left. Competitive firm is a price taker — it simply produces less (Q falls). Market price rises by part of the tax (buyer burden) and seller net price falls by the rest (seller burden). DWL = triangle of lost transactions. Long run: if tax pushes P below ATC, firms exit → market supply contracts further."/><D t="Tax on a Monopolist" c="A per-unit tax increases the monopolist's MC (shifts MC upward). Monopolist re-optimizes: new MR = MC at lower Q → higher P. The monopolist passes on MORE than just the tax in some cases because of the shape of its demand curve. DWL increases further — now there's both the original monopoly DWL PLUS additional DWL from the tax."/><D t="Subsidy on a Perfectly Competitive vs. Monopoly Market" c="Competitive market: subsidy lowers MC → supply shifts right → lower price, more output, moves CLOSER to efficient quantity. May correct a positive externality by funding production to the social optimum. Monopoly: subsidy lowers MC → monopolist moves down MC → lower price and higher output → reduces but doesn't eliminate the monopoly DWL (unless subsidy is perfectly calibrated to make P = MC)."/><APX t="AP Micro Topic 6.4 — What They Actually Test" c="The AP exam tests: (1) Show graphically how a per-unit tax affects a perfectly competitive firm AND the market simultaneously. (2) Show how a lump-sum tax (fixed amount regardless of output) vs. per-unit tax affects a monopolist differently. A LUMP-SUM tax only shifts the ATC curve (not MC) → doesn't change the monopolist's profit-max Q or P! This distinction appears on AP FRQs."/></>,
+    "AP Tips":<AP c={["Lump-sum tax: shifts ATC up only, NOT MC. Monopolist's Q and P unchanged. Only profit changes.","Per-unit tax: shifts MC up. Monopolist's Q falls and P rises. Affects output decision.","Tax in competitive market: DWL = triangle. Monopoly + tax: double DWL (monopoly DWL + tax DWL).","AP FRQ tip: always draw BOTH firm and market diagrams for competitive industry questions."]}/>
+  }},
   {id:"mk4",icon:"🔑",title:"Four Market Structures — Comparison",sub:"Quick reference for all four structures",tabs:["Table","Monopolistic Comp.","Oligopoly","AP Tips"],cnt:{
     Table:<><div className="db" style={{overflowX:"auto"}}><table className="mktable"><thead><tr><th>Feature</th><th>Pure Competition</th><th>Mono. Comp.</th><th>Oligopoly</th><th>Pure Monopoly</th></tr></thead><tbody>
       <tr><td>Number of Sellers</td><td>Many (infinite)</td><td>Many</td><td>Few (3–5 large)</td><td>One</td></tr>
@@ -690,7 +1365,7 @@ const part4=[
     </tbody></table></div></>,
     "Monopolistic Comp.":<><D t="Characteristics" c="Many sellers, differentiated products (branding, style, quality), easy entry/exit, advertising as competition tool. Examples: restaurants, clothing brands, app stores, barbershops."/><D t="Short Run vs. Long Run" c="Short run: can earn economic profit or loss (like monopoly — faces downward-sloping demand). Long run: easy entry erodes profit → entry until P = ATC (normal profit), but NOT at min ATC. Excess capacity: firm produces less than minimum-cost output. Not productively efficient but offers product variety."/><APX t="Excess Capacity — AP Extra Nuance" c="In LR monopolistic competition: firm operates on declining portion of LRAC — not at minimum. This excess capacity is the cost of product variety. Whether this is 'wasteful' or 'desirable variety' is normative. The AP exam may ask you to identify excess capacity on a diagram as the gap between actual Q and min ATC quantity."/></>,
     Oligopoly:<><D t="Mutual Interdependence" c="Oligopolist's decisions depend on rivals' responses. My price cut may trigger a price war. My price hike may go unmatched. This strategic interaction defines oligopoly and makes it the most complex market structure."/><D t="Prisoner's Dilemma & Nash Equilibrium" c="Two firms each choose: advertise or not. Both advertise → both earn medium profit. Neither advertises → both earn high profit. One advertises, one doesn't → advertiser gains, other loses. Dominant strategy for each: advertise regardless of rival. Nash equilibrium: both advertise (collectively suboptimal). Collusion to not advertise is unstable — each has incentive to cheat."/><D t="Kinked Demand Theory" c="If firm raises price → rivals don't follow (customers leave). If firm cuts price → rivals match (no gain). Result: kink in demand curve at current price. Above kink: elastic demand. Below: inelastic. Creates gap in MR curve → MC can shift without changing optimal price/output → price stickiness explained."/></>,
-    "AP Tips":<AP c={["Four market structures comparison table — memorize ALL rows. AP FRQ often asks to 'compare X to pure competition in terms of efficiency.'","Monopolistic competition: LR normal profit + excess capacity. Oligopoly: LR economic profit possible.","Prisoner's dilemma: know dominant strategy AND Nash equilibrium. Classic AP game theory question.","Only pure competition achieves both productive AND allocative efficiency in the long run."]}/>
+    "AP Tips":<AP c={["Four market structures comparison table — memorize ALL rows. AP FRQ often asks to 'compare X to pure competition in terms of efficiency.'","Monopolistic competition: LR normal profit + excess capacity. Oligopoly: LR economic profit possible.","Prisoner's dilemma: know dominant strategy AND Nash equilibrium. Classic AP game theory question.","Only pure competition achieves both productive AND allocative efficiency in the long run.","EXCL: Nash equilibrium with more than 2 players/actions, mixed-strategy equilibria, and extensive-form games are BEYOND SCOPE of AP Exam.","EXCL: A graph showing inefficiency from collusion is BEYOND SCOPE of AP Exam — understand collusion conceptually only."]}/>
   }},
 ];
 
@@ -700,6 +1375,11 @@ const part5=[
     Diagrams:<><LaborDiag/><MonopsonyDiag/><LFDiag/></>,
     "In-Depth":<><D t="Derived Demand" c="Demand for resources comes from demand for the final product. If pizza demand rises → demand for pizza workers rises. If technology replaces workers → DL shifts left. Key: DL = MRP curve. MRP = MP × MR (for monopolist product market) = MP × P (for competitive product market)."/><D t="MRP = MRC Hiring Rule" c="Hire inputs until MRP = MRC. For competitive labor market: MRC = wage (constant). For monopsony: MRC > wage (must raise wage for all workers). Rule: hire until MRP = MRC, just like produce until MR = MC. Two sides of the same optimization problem."/><D t="Monopsony" c="Single employer: faces upward-sloping labor supply → to hire more workers, must pay higher wage for ALL → MRC > wage. Monopsonist hires LESS (Lm) and pays LESS (Wm) than competitive market. Creates DWL (like monopoly on the buyer side). Examples: company towns, some hospital/school districts."/><D t="Minimum Wage in Competitive vs. Monopsony Markets" c="Competitive market: min wage above equilibrium → unemployment (QL < L*). Monopsony market: minimum wage can INCREASE employment AND wages simultaneously — if set between Wm and W_c, it eliminates the monopsony distortion. This is why empirical studies often find minimum wage increases don't cause unemployment — many labor markets have monopsonistic elements."/><D t="Loanable Funds Market" c="Determines real interest rate. Supply = saving (households, businesses, govt surpluses, foreign savers). Demand = borrowing for investment (firms), government borrowing (deficits). Equilibrium: r* where S = I. Government deficit shifts D right → r rises → crowding out of private investment."/></>,
     "AP Tips":<AP c={["MRP = MP × P (competitive firm). Hire until MRP = W (competitive labor market).","Monopsony: MRC > W; hires less at lower wage. Draw diagram: MRC above S_L, find Q where MRP = MRC, drop to S_L for wage.","Loanable funds market: S = saving. D = investment demand. Government deficits shift D right → r rises → crowding out.","AP Micro almost always has a labor market FRQ. Know both competitive and monopsony diagrams cold."]}/>
+  }},
+  {id:"laborsupply",icon:"👥",title:"Labor Supply Shifters, VMPL vs. MRP",sub:"AP Micro Topic 5.2 — What shifts labor supply; VMPL distinction",tabs:["Simple","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="Labor supply can shift left or right depending on outside wages, worker preferences, the size of the labor force, and non-wage factors. Separately: VMPL (Value of Marginal Product of Labor) is the term used specifically for a perfectly competitive firm in the OUTPUT market. MRP is the general term (works for any market). For competitive output markets ONLY: VMPL = MP × P = MRP. For a monopolist: MRP = MP × MR which is LESS than MP × P."/></>,
+    "In-Depth":<><D t="Labor Supply Shifters — What Shifts SL" c="Labor supply shifts RIGHT (more workers at every wage) when: (1) More workers enter the labor force (immigration, population growth, more women entering workforce). (2) Wages in alternative occupations fall (opportunity cost of this job decreases). (3) Workers develop stronger preference for this type of work. (4) Non-wage benefits improve (better working conditions, job security). Labor supply shifts LEFT when opposite occurs."/><D t="VMPL vs. MRP — The Critical Distinction" c="VMPL = MP × P (value of marginal product of labor). Used for firms that are price takers in the OUTPUT market (perfectly competitive firms). MRP = MP × MR (marginal revenue product). Works for ALL firms. For a competitive output market: MR = P, so VMPL = MRP. For a monopolist: MR < P, so MRP < VMPL. The monopolist's labor demand is LOWER than a competitive firm with the same production technology — the monopolist restricts output, which reduces the value it attributes to additional workers."/><D t="Why Monopoly in the Output Market Affects Labor Demand" c="A monopolist produces less output (MR=MC at lower Q than P=MC). Since it produces less, it needs fewer workers. The MRP curve for a monopolist lies below the VMPL curve. This means in industries with monopolistic output markets, workers are paid less and fewer are hired than would be the case in competitive output markets."/></>,
+    "AP Tips":<AP c={["VMPL = MP × P — ONLY for perfectly competitive output markets.","MRP = MP × MR — for ALL market structures. For competitive firms: MRP = VMPL.","Monopoly in output market → MRP < VMPL → fewer workers hired at lower wage than in competition.","Labor supply shifters: immigration, alternative wages, workforce preferences, non-wage benefits. These shift the SL curve — different from wage changes which move along SL."]}/>
   }},
 ];
 
@@ -714,16 +1394,40 @@ const part6=[
     Simple:<><B t="Business Cycle Phases" c="Peak (max output, low unemployment) → Recession (declining output, 2+ quarters falling real GDP, rising unemployment) → Trough (bottom) → Expansion/Recovery (rising output, falling unemployment). Driven by investment swings and demand/supply shocks."/><Dl t="Three Types of Unemployment" items={["Frictional: Between jobs voluntarily. Normal, healthy, indicates a dynamic economy.","Structural: Skills mismatch — workers' skills no longer match available jobs. More serious, longer duration.","Cyclical: Insufficient aggregate demand — not enough spending to employ everyone. The 'bad' kind during recessions.","Full Employment / NRU = Frictional + Structural only. No cyclical. ≈ 4–6% in US."]}/></>,
     "In-Depth":<><D t="Measuring Unemployment" c="Official rate (U-3): (unemployed seeking work / labor force) × 100. Understates true unemployment: discouraged workers (gave up looking) not counted as unemployed; underemployed (part-time wanting full-time) counted as employed. U-6 includes these."/><D t="Inflation: Definition, Measurement, Types" c="Inflation = sustained rise in general price level. CPI = (Cost of current basket / Cost of base year basket) × 100. Inflation rate = % change in CPI. Demand-pull: AD > AS at full employment → price level rises. Cost-push: SRAS shifts left (input cost shock) → stagflation (P↑, Y↓)."/><D t="Costs of Inflation" c="Redistributive: debtors gain (real debt shrinks), creditors lose. Fixed-income earners lose. Savers lose (real return = nominal rate - inflation). Menu costs, shoe-leather costs, uncertainty reduces investment. Hyperinflation can destroy economic activity entirely."/><D t="Real vs. Nominal Interest Rate — Fisher Equation" c="Real interest rate = Nominal interest rate - Inflation rate. (r = i - π). If bank charges 6% nominal and inflation is 4%, real rate = 2% — that's the true purchasing power cost of borrowing. Lenders want positive real returns. Borrowers prefer lower real rates."/><APX t="Fisher Equation — AP Macro Requirement" c="r = i − π. This EXACT formula appears on AP Macro FRQs. Example: If nominal interest rate = 8% and expected inflation = 3%, real rate = 5%. When inflation rises unexpectedly, real rate falls → benefits borrowers, hurts lenders. Always think about real (inflation-adjusted) variables for long-run analysis."/></>,
     Examples:<><E t="2021–2022 US Inflation" c="COVID relief stimulus ($5T) → demand-pull inflation (AD shifted right). Supply chain disruptions + energy price spikes → cost-push (SRAS shifted left). Both simultaneously → inflation peaked at 9.1% in June 2022. Fed raised rates to shift AD left."/></>,
-    "AP Tips":<AP c={["Frictional + Structural = NRU. Cyclical = recessionary. Only cyclical unemployment responds to stimulus.","Fisher equation: r = i - π. AP Macro FRQ almost certainly includes this. Real rate can be negative.","Demand-pull: AD right (P↑ Y↑). Cost-push: SRAS left (P↑ Y↓ — stagflation). Draw BOTH in AD-AS.","CPI vs. GDP deflator: CPI = fixed consumer basket; GDP deflator = all goods in GDP (broader)."]}/>
+    "AP Tips":<AP c={["Frictional + Structural = NRU. Cyclical = recessionary. Only cyclical unemployment responds to stimulus.","Fisher equation: r = i - π. AP Macro FRQ almost certainly includes this. Real rate can be negative.","Demand-pull: AD right (P↑ Y↑). Cost-push: SRAS left (P↑ Y↓ — stagflation). Draw BOTH in AD-AS.","CPI vs. GDP deflator: CPI = fixed consumer basket; GDP deflator = all goods in GDP (broader).","CPI substitution bias: CPI overstates inflation — consumers switch to cheaper substitutes when prices rise, but CPI basket is fixed.","Disinflation = inflation rate FALLING but still positive. Deflation = price level actually DECLINING. Know both definitions."]}/>
   }},
   {id:"growth",icon:"🚀",title:"Economic Growth",sub:"Ch 26 — Determinants, productivity, Rule of 70",tabs:["Simple","In-Depth","AP Tips"],cnt:{
     Simple:<><B t="Plain English" c="Economic growth = sustained increase in real GDP per capita over time. It compounds: Rule of 70 says years to double = 70 / annual growth rate. At 2% growth, income doubles in 35 years. At 7% growth, doubles in 10 years. Small differences in growth rates matter enormously over decades."/></>,
     "In-Depth":<><Dl t="Supply-Side Determinants of Growth" items={["Labor quality: education, training, health → human capital → productivity","Capital quantity: more machines, infrastructure, equipment","Technology: most important long-run driver (TFP — total factor productivity)","Natural resources: helpful but not necessary (Japan, South Korea = few resources, high growth)","Institutional factors: rule of law, property rights, political stability, low corruption"]}/><D t="Labor Productivity" c="Real GDP per hour worked. Rising productivity → workers produce more → higher real wages possible without inflation. Productivity growth from: capital deepening (more capital per worker), technology advances, education, economies of scale."/><D t="Growth and the PPC / LRAS" c="Economic growth = rightward shift of LRAS (and outward shift of PPC). Distinguished from recovery (moving toward existing LRAS from inside it). Short-run vs. long-run: short run = manage business cycles. Long run = grow productive capacity."/></>,
-    "AP Tips":<AP c={["Rule of 70: doubling time = 70 / annual growth rate.","Growth = shift of LRAS rightward (not just moving along it).","AP Macro growth questions combine with long-run AD-AS. Supply-side policies (education, R&D, deregulation) shift LRAS right."]}/>
+    "AP Tips":<AP c={["Rule of 70: doubling time = 70 / annual growth rate.","Growth = shift of LRAS rightward (not just moving along it).","AP Macro growth questions combine with long-run AD-AS. Supply-side policies (education, R&D, deregulation) shift LRAS right.","Aggregate Production Function (MEA-2.B): Real GDP = f(Employment). Graph: x-axis = employment, y-axis = real GDP. Upward sloping — more workers = more output. Shifts up when: technology improves, capital increases, workers become more productive. Required to explain; provided on MC (not required to draw on FRQ).","Per capita GDP = Real GDP / Population. The standard measure of living standards. AP Macro uses this to compare growth across countries and over time."]}/>
   }},
 ];
 
 const part7=[
+  {id:"finassets",icon:"📈",title:"Financial Assets: Stocks, Bonds & Risk",sub:"AP Macro Topic 4.1 — Financial sector foundations",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="Financial assets are claims on future income or wealth. Two main types: Bonds (debt — you lend money, earn fixed interest) and Stocks (equity — you own a piece of a company, earn dividends + capital gains). Higher risk = higher expected return. The most critical rule for AP Macro: bond prices and interest rates move in OPPOSITE directions — always."/></>,
+    Diagram:<><FinAssetDiag/></>,
+    "In-Depth":<><D t="Bonds (Debt Instruments)" c="A bond is a loan made by an investor to a borrower (corporation or government). The bond pays a fixed coupon payment each period and returns face value at maturity. Bond price and interest rates are INVERSELY related: if market rates rise, existing bonds paying lower fixed rates become less valuable → price falls. If a $1,000 bond pays $50/year: yield = 50/1000 = 5%. If market rates rise to 6%, no one will pay $1,000 for a 5% bond → price falls until yield matches market rate."/><D t="Stocks (Equity Instruments)" c="A share of stock represents ownership in a corporation. Stockholders earn dividends (regular profit distributions) and capital gains (price appreciation). Stocks carry more risk than bonds (no guaranteed payment) but historically earn higher returns. Stock prices reflect expectations of future corporate profits."/><D t="The Bond Price—Interest Rate Inverse Relationship" c="This relationship is the most important financial concept in AP Macro. When the Fed buys bonds (expansionary OMO): bond demand rises → bond prices rise → interest rates FALL → investment rises → AD shifts right. When Fed sells bonds: prices fall → rates rise → investment falls → AD shifts left. You must always connect OMO to bond prices to interest rates to investment to AD."/></>,
+    "AP Tips":<AP c={["Bond price ↑ ↔ interest rate ↓. ALWAYS inverse. This shows up on AP Macro FRQs every year.","Fed buys bonds → bond prices rise → rates fall → I rises → AD shifts right. Write out every step.","Stocks are NOT tested as deeply as bonds in AP Macro — focus on bonds and the price-rate relationship.","Financial assets are in AP Macro Unit 4 — often the foundation for monetary policy questions."]}/>
+  }},
+  {id:"reservemkt",icon:"🏦",title:"The Reserve Market",sub:"AP Macro Topic 4.6 — Ample reserves, IOR, policy rate",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="The Reserve Market is a REQUIRED diagram on AP Macro FRQs. It shows how the Fed controls the federal funds rate in today's ample-reserves banking system. Unlike the old system (limited reserves + money multiplier), the US Fed now primarily uses Interest on Reserves (IOR) as its key tool — raising IOR raises the policy rate; lowering IOR lowers it."/></>,
+    Diagram:<><ReserveMktDiag/></>,
+    "In-Depth":<><D t="Limited vs. Ample Reserves — Two Frameworks" c="OLD system (limited reserves): banks had just enough reserves, so Fed buying/selling bonds in OMO directly changed money supply and interest rates via the multiplier. NEW system (ample reserves, US since 2008): banks hold far more reserves than required. OMO alone doesn't change interest rates — banks just swap bonds for more excess reserves. Instead, the Fed sets IOR directly, which becomes the effective floor for all short-term rates."/><D t="Supply of Reserves (SR) — Horizontal Line" c="In the ample reserves framework, SR is essentially horizontal (perfectly elastic) at the IOR rate. Why? Banks won't lend reserves at a rate below what the Fed pays on reserves. So IOR sets the floor. Fed RAISES IOR → SR shifts UP → policy rate rises. Fed LOWERS IOR → SR shifts DOWN → policy rate falls."/><D t="Demand for Reserves (DR) — Downward Sloping" c="Banks demand reserves for: required reserves (transactions), precautionary holdings, and to earn interest. Lower policy rate → holding reserves costs more in terms of forgone lending → DR slopes down. Shifts right if: reserve requirements rise, more transactions, uncertainty increases."/><APX t="Reserve Market vs. Money Market — AP Macro Distinction" c="The AP Macro exam now includes BOTH: Money Market (MS vertical, MD downward, y-axis = nominal interest rate, x-axis = quantity of money) AND Reserve Market (SR horizontal at IOR, DR downward, y-axis = policy rate, x-axis = quantity of reserves). Know which one is being asked. The Reserve Market is the more current/accurate model of how the Fed actually operates. Both are required to draw."/></>,
+    "AP Tips":<AP c={["Reserve Market: SR is HORIZONTAL at IOR level. DR slopes down. Policy rate = where they intersect.","Fed raises policy rate: raises IOR → SR shifts UP. NOT by shrinking money supply (that's the old framework).","AP Macro FRQ: 'Draw a correctly labeled reserve market and show the effect of the Fed raising IOR' → SR shifts up, policy rate rises.","Both money market AND reserve market appear on AP Macro. Know when each is appropriate to use."]}/>
+  }},
+  {id:"moneyinflation",icon:"💵",title:"Money Growth & Inflation: Quantity Theory (MV=PQ)",sub:"AP Macro Topic 5.3 — Long-run inflation, classical view",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="The Quantity Theory of Money says: Money Supply × Velocity = Price Level × Real Output. Or: MV = PQ. In the long run, if you print more money (M↑) but real output (Q) doesn't change, prices must rise proportionally. This is why economists say 'inflation is always and everywhere a monetary phenomenon' — excessive money growth causes inflation in the long run."/></>,
+    Diagram:<><QTMDiag/></>,
+    "In-Depth":<><D t="The Equation of Exchange: MV = PQ" c="M = money supply (controlled by Fed). V = velocity of money (how many times each dollar is spent per year; assumed relatively stable by monetarists). P = price level (GDP deflator). Q = real output (real GDP). The equation is an accounting identity — it's always true by definition. The question is what causes what."/><D t="Monetarist Interpretation" c="Milton Friedman and monetarists assume V is stable (predictable) and Q grows at its long-run natural rate regardless of monetary policy. Therefore: ΔM → proportional ΔP in the long run. Excess money growth = inflation. The Fed should target a steady, modest money growth rate equal to the growth rate of real output to maintain price stability."/><D t="Classical Quantity Theory — Money Neutrality" c="In the long run, money is 'neutral': increasing M only raises P, it does NOT raise real output Q. Prices adjust fully. The classical dichotomy separates real variables (Q, employment) from nominal variables (P, M). In the short run (sticky wages/prices): M↑ can raise Q temporarily. In the long run: only P rises. This is why the LRAS is vertical and why LR monetary policy targets inflation, not output."/><D t="Rule vs. Discretion Debate" c="Monetarists (Friedman): Fed should follow a constant money growth rule (k-percent rule) because discretionary policy creates instability. Keynesians: discretionary policy is necessary to respond to shocks. Modern central banks (Taylor Rule) use a hybrid: adjust rates systematically in response to inflation and output gaps."/></>,
+    "AP Tips":<AP c={["MV = PQ: know all four variables and what each represents.","Long-run money neutrality: M↑ → only P↑, not Q. Real variables unchanged in LR.","AP Macro may ask: 'If money supply grows 10% and real GDP grows 3%, what happens to the price level?' → approximately 7% inflation (if V is stable).","Connects to: Phillips Curve (LR vertical at NRU), LRAS (vertical), and why the Fed targets inflation."]}/>
+  }},
+  {id:"supplygrowth",icon:"🚀",title:"Public Policy & Supply-Side Economic Growth",sub:"AP Macro Topics 5.6–5.7 — Supply-side policies, LRAS growth",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="Economic growth means shifting the LRAS rightward — increasing the economy's productive capacity. Supply-side policies target this directly by improving the QUALITY or QUANTITY of productive resources. Unlike demand-side (fiscal/monetary) policy that moves along existing SRAS, supply-side policies expand the frontier itself — more output at a lower price level."/></>,
+    Diagram:<><SupplySideDiag/></>,
+    "In-Depth":<><Dl t="Supply-Side Policies That Shift LRAS Rightward" items={["Investment in physical capital: infrastructure spending (roads, ports, broadband) increases productive capacity","Investment in human capital: education subsidies, job training programs, immigration of skilled workers → higher labor productivity","Research & Development (R&D): government funding of basic research (NIH, NASA), patent system → technological progress → TFP growth","Deregulation: removing barriers to business entry and competition → more efficient resource allocation, more innovation","Tax incentives for investment: lower corporate taxes, investment tax credits → more private capital formation","Policies to increase labor force participation: childcare subsidies, immigration reform"]}/><D t="Supply-Side vs. Demand-Side Policy" c="Demand-side (Keynesian): G↑ or T↓ → AD shifts right → short-run output rises, but price level also rises. Good for closing recessionary gaps, but inflationary. Supply-side: SRAS and LRAS shift right → output rises AND price level falls. Better for sustainable long-run growth. But supply-side effects are slow (takes years to build infrastructure or train workers) while demand-side works in months."/><D t="Growth Accounting" c="Output growth = labor input growth + capital growth + total factor productivity (TFP) growth. TFP captures everything else — mostly technology and innovation. Studies show TFP is the dominant driver of long-run growth in advanced economies. This is why R&D and education investment are considered the most important supply-side policies."/></>,
+    "AP Tips":<AP c={["Supply-side = LRAS shifts RIGHT. Both output rises AND price level falls. Draw this correctly on AD-AS.","Demand-side = AD shifts right. Output rises BUT price level also rises. Different diagram.","AP Macro FRQ might ask: 'What policy would increase long-run potential output?' → supply-side examples above.","Government spending on infrastructure counts as G in AD (short run) AND shifts LRAS (long run). Both effects are tested."]}/>
+  }},
   {id:"adasm",icon:"📐",title:"Aggregate Demand & Aggregate Supply",sub:"Ch 30 — The core macro model",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
     Simple:<><B t="Plain English" c="AD-AS is the macro version of supply and demand. AD = total spending. SRAS = total production in the short run (sticky wages/prices). LRAS = maximum sustainable output at full employment (vertical — all prices flexible). This one model explains recession, inflation, stagflation, and growth."/></>,
     Diagram:<><ADASDiag/><Dl t="AD Shifters (CIGXN)" items={["C: Consumer wealth, confidence, taxes, debt","I: Interest rates, business confidence, technology, investment tax credits","G: Government spending changes","Xn: Exchange rates, foreign income changes, tariffs"]}/><Dl t="SRAS Shifters" items={["Input prices (oil, wages, raw materials)","Productivity changes","Business taxes / subsidies","Government regulations"]}/></>,
@@ -748,6 +1452,12 @@ const part7=[
     "In-Depth":<><D t="Expansionary Monetary Policy (for Recession)" c="Fed buys bonds → excess reserves → banks lend more → MS increases → interest rates fall → Investment rises → AD shifts right → Y↑ P↑ (toward Yp if recessionary gap). Also: lower rates → dollar depreciates → Xn rises → additional AD boost."/><D t="Contractionary Monetary Policy (for Inflation)" c="Fed sells bonds → reserves drain → banks lend less → MS decreases → interest rates rise → Investment falls → AD shifts left → Y↓ P↓. Used to fight inflationary gap or high inflation. 2022-2023: Fed raised rates from 0% to 5.25% to combat 9% inflation."/><D t="Fed Balance Sheet" c="Assets: U.S. government securities (bonds) and loans to banks. Liabilities: Federal Reserve Notes (physical currency) and bank reserves (deposits at the Fed). When Fed buys bonds: asset (securities) increases, liability (bank reserves) increases → money supply expands. Quantitative Easing (QE): large-scale asset purchases beyond normal OMO."/><D t="Money Market Equilibrium" c="MS is vertical (fixed by Fed). MD slopes downward (higher nominal rate = higher opportunity cost of holding money). Equilibrium: nominal interest rate i* where MS = MD. Fed shifts MS: buy bonds → MS right → i falls → I rises → AD right. Sell bonds → MS left → i rises → I falls → AD left."/><APX t="Bond Prices & Interest Rates — Inverse Relationship (AP Essential)" c="When the Fed BUYS bonds: bond demand rises → bond prices rise → interest rates FALL (inverse relationship always). Why? A $1,000 bond paying $50/year: if price rises to $1,100, yield = 50/1100 = 4.5% (fell from 5%). Sell bonds: prices fall → rates rise. AP Macro FRQs frequently test this: 'What happens to bond prices when the Fed conducts expansionary OMO?' Answer: bond prices RISE, interest rates FALL."/><APX t="Monetary Policy Transmission — Full Chain (AP Extra)" c="OMO (buy bonds) → excess reserves increase → banks create new loans → MS increases → bond prices rise, interest rates fall → (1) Investment increases (business borrowing cheaper) → (2) Consumer durables increase (car loans, mortgages cheaper) → (3) Dollar depreciates (capital outflow at lower US rates) → net exports rise → (4) AD shifts right → Real GDP rises, price level rises (if recessionary gap)."/></>,
     "AP Tips":<AP c={["OMO = most-used Fed tool. Buy bonds → expand money supply → lower i → more I → AD right.","Bond prices and interest rates move INVERSELY. Buy bonds → prices rise → rates fall. ALWAYS.","Money multiplier = 1/RR. $1000 deposit, RR=10% → up to $10,000 total money supply. Actual less.","Draw money market: vertical MS, downward MD. Fed buys bonds → MS shifts right → i falls."]}/>
   }},
+  {id:"tacct",icon:"📋",title:"T-Accounts & Bank Balance Sheets",sub:"AP Macro Topic 4.4 — How banks create money, OMO mechanics",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="A T-account is a simplified bank balance sheet. Left side = Assets (what the bank owns: loans, securities, reserves). Right side = Liabilities (what the bank owes: deposits). They must always be EQUAL. When you deposit $1,000, it appears on BOTH sides. The bank keeps required reserves (RR × deposits) and loans out the rest (excess reserves). This loaning process creates new money."/><B t="Required Reserve Formula" c="Required Reserves = Reserve Requirement × Deposits. Excess Reserves = Total Reserves − Required Reserves. Maximum new loans = Excess Reserves. Maximum new money created in entire banking system = Excess Reserves × Money Multiplier (1/RR)."/></>,
+    Diagram:<><TAccountDiag/></>,
+    "In-Depth":<><D t="Reading a T-Account" c="Assets (left side): reserves held at Fed or in vault, loans made to customers, securities (bonds) owned, other assets. Liabilities (right side): demand deposits (checking accounts), savings deposits, other debt. Key identity: Total Assets = Total Liabilities + Net Worth. Banks aim to have no excess reserves (idle money doesn't earn interest) — they loan everything above required reserves."/><D t="How Money Is Created Step by Step" c="Step 1: Customer deposits $1,000. Bank's assets (reserves) +$1,000; liabilities (deposits) +$1,000. Step 2: With RR=20%, required reserves = $200. Excess reserves = $800. Bank loans $800. Step 3: Assets change: reserves fall to $200, loans rise by $800 (total assets still $1,000). Step 4: Borrower deposits $800 at another bank → that bank now has $800 in deposits, loans $640... Process repeats. Total money creation = $1,000 × (1/0.20) = $5,000 maximum."/><D t="Fed Open Market Operations — T-Account View" c="Fed BUYS $100 bond from a commercial bank: Fed's assets (securities) +$100; Fed's liabilities (bank reserves) +$100. Commercial bank's assets: securities −$100, reserves +$100. Net effect: bank now has $100 more in reserves → excess reserves rise → bank can make new loans → money supply expands. Fed SELLS bond: exact reverse — bank's reserves fall → must reduce lending → money supply contracts."/><D t="Why Banks Hold Excess Reserves (and Why That Limits the Multiplier)" c="During recessions or uncertainty, banks may hold excess reserves instead of lending (as happened 2008-2015 when Fed paid interest on reserves). If banks hold excess reserves, the actual money multiplier is less than 1/RR. Also: if loan recipients hold cash instead of re-depositing, the multiplier shrinks. The theoretical multiplier (1/RR) assumes all excess reserves are loaned and all loans re-deposited."/></>,
+    "AP Tips":<AP c={["T-account questions appear on AP Macro FRQs nearly every year. Practice filling them out both ways (deposit AND Fed OMO).","When Fed buys bonds FROM A BANK: bank securities fall, bank reserves rise. No change in deposits (yet).","When Fed buys bonds FROM THE PUBLIC: public deposits proceeds → deposits rise, reserves rise, then bank loans excess.","Maximum new money = Excess Reserves / RR (equivalently: Excess Reserves × Money Multiplier). Show your work."]}/>
+  }},
   {id:"pc2",icon:"📈",title:"Phillips Curve, Extended AS & Supply-Side",sub:"Ch 36–37 — SR/LR Phillips, stagflation, Laffer curve",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
     Simple:<><B t="Plain English" c="Short-run Phillips Curve: tradeoff between inflation and unemployment. Low unemployment → high inflation (economy overheating). High unemployment → low inflation. But in the LONG RUN: no tradeoff — the LRPC is vertical at the Natural Rate of Unemployment (NRU). You can't permanently buy lower unemployment with higher inflation."/></>,
     Diagram:<><PhillipsDiag/></>,
@@ -757,6 +1467,12 @@ const part7=[
 ];
 
 const part8=[
+  {id:"capflows",icon:"💹",title:"Real Interest Rates & International Capital Flows",sub:"AP Macro Topic 6.6 — How rate differentials drive forex and AD",tabs:["Simple","Diagram","In-Depth","AP Tips"],cnt:{
+    Simple:<><B t="Plain English" c="Money is mobile — investors move funds to wherever returns are highest. If US interest rates rise relative to other countries, foreign investors want US bonds. To buy US bonds they need US dollars — so demand for dollars rises and the dollar appreciates. This makes US exports more expensive and imports cheaper, reducing net exports and partially offsetting the original policy. This is a critical AP Macro chain."/></>,
+    Diagram:<><CapFlowDiag/></>,
+    "In-Depth":<><D t="Interest Rate Differentials Drive Capital Flows" c="If real interest rates are higher in the US than abroad, investors in other countries prefer US assets (US bonds, US bank deposits). They sell their currency and buy dollars to invest in the US. This capital inflow: (1) Increases demand for dollars in forex market → dollar appreciates. (2) Increases supply of foreign currencies → those currencies depreciate. Net result: US goods become more expensive for foreigners, foreign goods cheaper for Americans."/><D t="The Full Monetary Policy Chain (International Version)" c="Expansionary monetary policy (Fed buys bonds): interest rates fall → capital OUTFLOWS (investors seek higher returns abroad) → demand for dollars falls / supply rises → dollar DEPRECIATES → US exports cheaper for foreigners → US imports more expensive → net exports (Xn) RISE → AD shifts further right (international multiplier reinforces domestic monetary policy). Contractionary policy: exact reverse."/><D t="Fiscal Policy and Capital Flows" c="Expansionary fiscal policy (G↑, deficit spending): government borrows more → loanable funds demand rises → real interest rates rise → capital INFLOWS → dollar APPRECIATES → net exports FALL. This international crowding out can partially or fully offset the fiscal expansion. Open economies face more crowding out than closed economies because of this additional channel."/><D t="Balance of Payments Identity" c="Current account (CA) + Capital/Financial Account (CFA) = 0. If US has a trade deficit (CA < 0), it must be financed by a capital surplus (CFA > 0) — foreigners invest more in the US than Americans invest abroad. The 2024 US trade deficit (~$800B) is exactly financed by net capital inflows (~$800B). This is not optional — it's an accounting identity."/></>,
+    "AP Tips":<AP c={["Full chain: r↑ → capital inflows → dollar appreciates → Xn falls → AD shifts left. Write EVERY step on FRQ.","r↓ → capital outflows → dollar depreciates → Xn rises → AD shifts right (reinforces expansionary MP).","Fiscal expansion → r↑ → capital inflows → dollar appreciates → Xn falls → PARTIALLY offsets the fiscal stimulus.","Current account deficit = Capital account surplus. Always. By accounting identity. No exceptions."]}/>
+  }},
   {id:"trade",icon:"🌐",title:"International Trade & Comparative Advantage",sub:"Ch 38 — Why nations trade, tariffs, WTO",tabs:["Simple","In-Depth","Examples","AP Tips"],cnt:{
     Simple:<><B t="Plain English" c="Countries trade because they're different. Comparative advantage: specialize in what you produce at the LOWEST OPPORTUNITY COST — even if another country is absolutely better at everything. Trade allows both countries to consume more than they could alone."/><Dl t="Comparative vs. Absolute Advantage" items={["Absolute advantage: produce MORE output per unit of input — raw efficiency","Comparative advantage: produce at LOWER OPPORTUNITY COST — this determines trade specialization","A country should export goods where it has CA (lower OC) and import goods where the other country has CA","Works even if one country is absolutely worse at EVERYTHING — CA always exists for both countries"]}/></>,
     "In-Depth":<><D t="Gains from Trade" c="Specialization + trade allows both countries to consume beyond their individual PPCs. World output rises. Terms of trade (ratio at which goods are exchanged) must fall between the two countries' domestic opportunity cost ratios for BOTH to gain."/><D t="Trade Barriers: Tariffs and Quotas" c="Tariff: tax on imports → domestic price rises → domestic production rises, imports fall, CS falls, PS rises, govt revenue rises, net welfare loss (DWL). Quota: quantity limit → same price/quantity effect as tariff but NO government revenue — rent goes to foreign exporters or domestic importers with licenses. Both are economically inferior to free trade."/><D t="Arguments for Protection" c="(1) Infant industry: protect new domestic industries until competitive. Sometimes valid but tends to become permanent. (2) Military self-sufficiency: strategic industries. Legitimate concern, easily abused. (3) Anti-dumping: prevent foreign firms selling below cost to destroy domestic competition. (4) Cheap foreign labor: usually fallacious — low wages reflect low productivity; CA still determines trade. (5) Diversification argument."/></>,
@@ -786,7 +1502,7 @@ const hardQs=[
 
 /* ═══════════════ NAV & SECTIONS ═══════════════ */
 const NAVS=[{id:"home",label:"🏠 Home"},{id:"p1",label:"Part 1: Foundations"},{id:"p2",label:"Part 2: Micro Markets"},{id:"p3",label:"Part 3: Consumer"},{id:"p4",label:"Part 4: Firms"},{id:"p5",label:"Part 5: Resources"},{id:"p6",label:"Part 6: Macro GDP"},{id:"p7",label:"Part 7: Macro Policy"},{id:"p8",label:"Part 8: International"},{id:"hq",label:"📝 Hard Qs"}];
-const SECS={p1:{badge:"Part One",title:"Intro to Economics & the Economy",sub:"Chapters 1–2",data:part1,col:"#b8943a"},p2:{badge:"Part Two",title:"Price, Quantity & Efficiency",sub:"Chapters 3–5",data:part2,col:"#5fcc8a"},p3:{badge:"Part Three",title:"Consumer Behavior",sub:"Chapters 6–8",data:part3,col:"#88aaff"},p4:{badge:"Part Four",title:"Microeconomics of Product Markets",sub:"Chapters 9–13",data:part4,col:"#c9a84c"},p5:{badge:"Part Five",title:"Resource Markets & Government",sub:"Chapters 14–18",data:part5,col:"#e07070"},p6:{badge:"Part Seven",title:"GDP, Growth & Business Cycles",sub:"Chapters 24–27",data:part6,col:"#4a7aab"},p7:{badge:"Part Eight–Nine",title:"Macro Models, Fiscal & Monetary Policy",sub:"Chapters 28–34, 36",data:part7,col:"#a880ff"},p8:{badge:"Part Eleven",title:"International Economics",sub:"Chapters 38–39",data:part8,col:"#5fcc8a"}};
+const SECS={p1:{badge:"Part One",title:"Intro to Economics & the Economy",sub:"Chapters 1–2",data:part1,col:"#b8943a"},p2:{badge:"Part Two",title:"Price, Quantity & Efficiency",sub:"Chapters 3–5 + AP Micro Topics 2.8, 6.4",data:part2,col:"#5fcc8a"},p3:{badge:"Part Three",title:"Consumer Behavior",sub:"Chapters 6–8 + AP Micro Topic 6.5",data:part3,col:"#88aaff"},p4:{badge:"Part Four",title:"Microeconomics of Product Markets",sub:"Chapters 9–13 + AP Micro Topics 3.1, 6.4",data:part4,col:"#c9a84c"},p5:{badge:"Part Five",title:"Resource Markets & Government",sub:"Chapters 14–18",data:part5,col:"#e07070"},p6:{badge:"Part Seven",title:"GDP, Growth & Business Cycles",sub:"Chapters 24–27",data:part6,col:"#4a7aab"},p7:{badge:"Part Eight–Nine",title:"Macro Models, Fiscal & Monetary Policy",sub:"Chapters 28–34, 36 + AP Macro Topics 4.1, 5.3, 5.6–5.7",data:part7,col:"#a880ff"},p8:{badge:"Part Eleven",title:"International Economics",sub:"Chapters 38–39 + AP Macro Topic 6.6",data:part8,col:"#5fcc8a"}};
 
 function SectionView({sid}){
   const sec=SECS[sid];
@@ -851,17 +1567,17 @@ function HQPage(){
 
 const HOME_CARDS=[
   {id:"p1",n:"1",t:"Foundations",d:"Scarcity, PPC, economic systems, circular flow, opportunity cost, factors of production.",chips:["PPC","Scarcity","Circular Flow","Invisible Hand","Opportunity Cost"]},
-  {id:"p2",n:"2",t:"Micro: Markets",d:"S&D, equilibrium, price controls, market failures, externalities, Lorenz curve, antitrust.",chips:["S&D","DWL","Externalities","Lorenz Curve","Antitrust"]},
+  {id:"p2",n:"2",t:"Micro: Markets",d:"S&D, equilibrium, per-unit taxes & subsidies, market failures, Lorenz curve, antitrust, govt intervention.",chips:["S&D","Tax/Subsidy DWL","Externalities","Lorenz Curve","Antitrust"]},
   {id:"p3",n:"3",t:"Consumer Behavior",d:"Elasticity, utility maximization, indifference curves, behavioral economics.",chips:["PED","MU Rule","Indiff. Curves","Loss Aversion","Nudging"]},
-  {id:"p4",n:"4",t:"Firm Theory",d:"Cost curves, pure competition, monopoly, 4-market comparison table, game theory.",chips:["MC=MR","4 Structures","Monopoly","Oligopoly","LR Industry S"]},
+  {id:"p4",n:"4",t:"Firm Theory",d:"Production function (TP/MP/AP), cost curves, all 4 market structures, government intervention across structures.",chips:["TP/MP/AP","MC=MR","Monopoly","Oligopoly","Tax on Monopolist"]},
   {id:"p5",n:"5",t:"Resource Markets",d:"Derived demand, MRP, competitive & monopsony labor, loanable funds market.",chips:["MRP=MRC","Monopsony","Loanable Funds","Min Wage","Rent"]},
   {id:"p6",n:"6",t:"Macro: GDP & Cycles",d:"GDP formula, real vs. nominal, business cycles, unemployment types, inflation, Fisher equation.",chips:["C+I+G+Xn","Real GDP","NRU","CPI","r = i - π"]},
-  {id:"p7",n:"7",t:"Macro: Policy",d:"AD-AS, Keynesian Cross, fiscal & monetary policy, money & forex markets, Phillips curve.",chips:["AD-AS","Money Market","Loanable Funds","Keynesian Cross","Phillips Curve"]},
-  {id:"p8",n:"8",t:"International",d:"Comparative advantage, tariffs, forex diagrams, balance of payments, exchange rate chains.",chips:["Comparative Adv.","Tariffs","Forex Market","BOP","Dollar Effects"]},
+  {id:"p7",n:"7",t:"Macro: Policy",d:"Financial assets, MV=PQ, supply-side growth, AD-AS, Keynesian Cross, fiscal & monetary policy, Phillips curve.",chips:["MV=PQ","Supply-Side","AD-AS","Money Market","Phillips Curve"]},
+  {id:"p8",n:"8",t:"International",d:"Comparative advantage, tariffs, forex, balance of payments, capital flows & exchange rate chains.",chips:["Comparative Adv.","Tariffs","Forex Market","Capital Flows","r→$→Xn"]},
   {id:"hq",n:"?",t:"Hard Questions",d:"10 complete FRQ-style answers covering all sections. Try before revealing.",chips:["Multipliers","AD-AS","Labor Markets","Game Theory","Monetary Chain"]},
 ];
 
-const TERMS=[["GDP = C+I+G+Xn","Expenditure approach"],["PED = %ΔQd / %ΔP","Price elasticity"],["MR = MC","Profit max rule"],["P = min ATC","Productive efficiency"],["P = MC","Allocative efficiency"],["MU_x/P_x = MU_y/P_y","Utility max rule"],["Money Multiplier = 1/RR","Fractional reserve"],["Spending Multiplier = 1/MPS","Fiscal multiplier"],["Tax Multiplier = MPC/MPS","Smaller than spending"],["r = i - π","Fisher equation"],["Comparative Adv.","Lower opportunity cost"],["NRU = F + S","No cyclical unemp."],["LRPC vertical at NRU","No LR tradeoff"],["Real GDP","Inflation-adjusted output"],["DWL","Lost surplus, distortion"],["CS = WTP - Price paid","Consumer surplus"],["Economic Profit = 0","Normal profit, LR PC"],["MRP = MP × P","Derived demand"],["Crowding Out","Govt borrows → r↑ → I↓"],["Balanced Budget Mult = 1","G & T rise equally"],["Bond price ↑ ↔ rate ↓","Inverse relationship"],["Dollar appreciates","Xn falls, AD shifts left"],["★ Indiff. Curve optimum","MRS = Px/Py at tangency"],["★ Balanced budget mult","ΔY = ΔG when ΔG = ΔT"],];
+const TERMS=[["GDP = C+I+G+Xn","Expenditure approach"],["PED = %ΔQd / %ΔP","Price elasticity"],["MR = MC","Profit max rule"],["P = min ATC","Productive efficiency"],["P = MC","Allocative efficiency"],["MU_x/P_x = MU_y/P_y","Utility max rule"],["Money Multiplier = 1/RR","Fractional reserve"],["Spending Multiplier = 1/MPS","Fiscal multiplier"],["Tax Multiplier = MPC/MPS","Smaller than spending"],["r = i - π","Fisher equation"],["MV = PQ","Quantity Theory of Money"],["Comparative Adv.","Lower opportunity cost"],["NRU = F + S","No cyclical unemp."],["LRPC vertical at NRU","No LR tradeoff"],["Real GDP","Inflation-adjusted output"],["DWL","Lost surplus, distortion"],["CS = WTP - Price paid","Consumer surplus"],["Economic Profit = 0","Normal profit, LR PC"],["MRP = MP × P","Derived demand"],["Crowding Out","Govt borrows → r↑ → I↓"],["Bond price ↑ ↔ rate ↓","Inverse relationship"],["Dollar appreciates","Xn falls, AD shifts left"],["Tax burden","Borne by more inelastic side"],["r↑ → $ appreciates → Xn↓","Capital flow chain"],["MP peaks = MC minimum","Production-cost link"],["★ MRS = Px/Py","Indiff. curve optimum"],["★ Balanced budget mult","ΔY = ΔG when ΔG = ΔT"],["★ Lump-sum tax","Shifts ATC not MC"],["★ LR money neutrality","M↑ → only P↑ in LR"],];
 
 export default function App(){
   const [page,setPage]=useState("home");
