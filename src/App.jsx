@@ -741,7 +741,7 @@ const NatMonopDiag=()=>(
     <text x="175" y="208" fill="#e07070" fontSize="7.5" textAnchor="middle">Qs</text>
     <text x="23" y="145" fill="#e07070" fontSize="7" textAnchor="end">Ps</text>
     <text x="140" y="138" fill="#e07070" fontSize="7">P=MC</text>
-    <text x="135" y="147" fill="#e07070" fontSize="6.5">(loss: ATC>P)</text>
+    <text x="135" y="147" fill="#e07070" fontSize="6.5">(loss: ATC&gt;P)</text>
     {/* Fair return: P=ATC gives Qf */}
     <line x1="148" y1="200" x2="148" y2="122" stroke="#5fcc8a" strokeWidth="1.2" strokeDasharray="2,2"/>
     <line x1="28" y1="122" x2="148" y2="122" stroke="#5fcc8a" strokeWidth="1.2" strokeDasharray="2,2"/>
